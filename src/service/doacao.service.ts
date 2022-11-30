@@ -21,6 +21,13 @@ export class DoacaoService {
         catchError(this.handleError))
   }
 
+  getDoacoes2(): Observable<Doacao[]> {
+    return this.httpClient.get<Doacao[]>(`${environment.baseUrl}/doacoes`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
+
   // Obtem um Pessoa fisica pelo id
   getDoacaoById(id: any): Observable<Doacao> {
     return this.httpClient.get<Doacao>(`${environment.url}/doacoes/` + id)
@@ -33,7 +40,7 @@ export class DoacaoService {
   // salva um Pessoa
   saveDoacao(doacao: Doacao): Observable<Doacao> {
     console.log(doacao)
-    return this.httpClient.post<Doacao>(`${environment.url}/doacoes/`, doacao)
+    return this.httpClient.post<Doacao>(`${environment.baseUrl}/doacoes/`, doacao)
       .pipe(
         retry(2),
         catchError(this.handleError)

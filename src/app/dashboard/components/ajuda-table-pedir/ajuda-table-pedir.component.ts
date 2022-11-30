@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DoacaoService } from 'src/service/doacao.service';
 import { ApiServiceService } from '../../../../shared/api-service.service';
 
 @Component({
@@ -22,10 +23,10 @@ export class AjudaTablePedirComponent implements OnInit {
   showUpdateBtn: boolean=false;
 
 
-  constructor(private api: ApiServiceService, private fb: FormBuilder) {}
+  constructor(private api: ApiServiceService, private fb: FormBuilder, private apiDoacao: DoacaoService) {}
 
   ngOnInit(): void {
-    //this.getAllAjudaDetails();
+    this.getAllAjudaDetails();
     this.createAjudaForm();
   }
 
@@ -39,13 +40,13 @@ export class AjudaTablePedirComponent implements OnInit {
     })
   }
 
-  // getAllAjudaDetails(){
-  //   this.api.getAllAjuda().subscribe(res=>{
-  //     this.ajudaDetails = res;
-  //   }, err=>{
-  //     console.log(err);
-  //   })
-  // }
+  getAllAjudaDetails(){
+    this.apiDoacao.getDoacoes2().subscribe(res=>{
+      this.ajudaDetails = res;
+    }, err=>{
+      console.log(err);
+    })
+  }
 
   onAddClick(){
     this.showAddBtn=true;
@@ -60,7 +61,7 @@ export class AjudaTablePedirComponent implements OnInit {
       let close = document.getElementById('close');
       close?.click();
       this.ajudaForm.reset();
-     // this.getAllAjudaDetails();
+     this.getAllAjudaDetails();
     }, err=> {
       alert("Error");
     })
@@ -69,7 +70,7 @@ export class AjudaTablePedirComponent implements OnInit {
   deleteAjudaDetail(id:any){
     this.api.deleteAjuda(id).subscribe(res=>{
       alert("Ajuda excluida com sucesso!");
-    //  this.getAllAjudaDetails();
+      this.getAllAjudaDetails();
     }, err=>{
       alert("Falha ao excluir ajuda");
     })                       
@@ -91,7 +92,7 @@ export class AjudaTablePedirComponent implements OnInit {
       alert("Alteração feita com sucesso!");
       let close = document.getElementById('close');
       close?.click();
-      //this.getAllAjudaDetails();
+      this.getAllAjudaDetails();
       this.ajudaForm.reset();
       this.ajudaModel={};
     }, err=>{

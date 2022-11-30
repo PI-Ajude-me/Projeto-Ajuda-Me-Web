@@ -2,10 +2,9 @@
   "cadastroajuda": [
     {
       "id": 1,
-      "usuario": null,
-      "descricao": "Cesta Básica",
-      "contato": "(62) 3860-1528",
-      "data": null
+      "descricao": "sdasd",
+      "contato": "62993732923",
+      "data": "2022-11-30T20:35:27.227Z"
     },
     {
       "id": 2,
@@ -13,6 +12,26 @@
       "descricao": "Tratamento dentário (extração sizo)",
       "contato": "(62) 99422-3797",
       "data": null
+    }
+  ],
+  "doacoes": [
+    {
+      "data": "2022-11-30T22:14:44.587Z",
+      "doacaocategoria": 0,
+      "contato": "62993732923",
+      "descricao": "Teste Pedido Ajuda",
+      "id": 1
+    }
+  ],
+  "pessoafisica": [
+    {
+      "nome": "wemerson pf json",
+      "cpf": "00000000000",
+      "telefone": "66666666666",
+      "email": "root@mail.com",
+      "senha": "123",
+      "pessoacategoria": 0,
+      "id": 1
     }
   ]
 }

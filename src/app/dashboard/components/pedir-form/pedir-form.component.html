@@ -2,11 +2,11 @@
     <div class="form-pedido-ajuda"> 
         <div class="form-group">  
           <div class="opcoes-ajuda">
-            <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?" name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria"  optionLabel="opcao" [showClear]="true"> </p-dropdown>
+            <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?" name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria" [showClear]="true"> </p-dropdown>
           </div>
           <div class="contato-ajuda">
             <span class="p-float-label">
-              <input id="float-input" type="text" [(ngModel)]="doacao.contato" name="contato" pInputText> 
+              <input id="float-input" type="text" [(ngModel)]="doacao.contato" name="contato" [mask]="getTelefoneMask()" pInputText> 
               <label for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
             </span>
           </div>
@@ -24,10 +24,10 @@
             <div class="content-mensagem">
               <p class="m-0"></p>
               <img [style]="{width: '12vw'}" src="../../../../assets/img/Ok.gif">
-              <h1>Deu tudo CERTO!</h1>
+              <h1>Deu tudo CERTO! Solicitação de Ajuda Cadastrada!</h1>
             </div>
             <ng-template pTemplate="footer">
-              <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+              <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" (click) =locationreload() styleClass="p-button-text"></p-button>
             </ng-template>
           </p-dialog>
          </div>

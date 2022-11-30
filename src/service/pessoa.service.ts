@@ -67,6 +67,14 @@ export class PessoaService {
       )
   }
 
+  savePessoaPf2(pessoafisica: PessoaFisica): Observable<PessoaFisica> {
+    return this.httpClient.post<PessoaFisica>(`${environment.baseUrl}/pessoafisica/`, pessoafisica)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   savePessoaPj(pessoajuridica: PessoaJurica): Observable<PessoaJurica> {
     return this.httpClient.post<PessoaJurica>(`${environment.url}/pessoajuridica/criar/`, pessoajuridica)
       .pipe(
