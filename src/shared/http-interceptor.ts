@@ -23,7 +23,6 @@ export class HttpInterceptorAuth implements HttpInterceptor{
                 }
             });
         }
-        
         return next.handle(request).pipe(tap(() => {
         }, (err: any) => {
             if (err instanceof HttpErrorResponse) {

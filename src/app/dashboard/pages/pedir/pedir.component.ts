@@ -23,30 +23,26 @@ export class PedirComponent implements OnInit {
   constructor(private dataservice: DataserviceService, private api: PessoaService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.messageService.add({key: 'tc', sticky: true, severity:'success', summary:'Login feito com sucesso!', detail:'Bem-vindo!'});
+    this.messageService.add({ key: 'tc', sticky: true, severity: 'success', summary: 'Login feito com sucesso!', detail: 'Bem-vindo!' });
     let tokenpf = localStorage.getItem("pessoafisica");
-    if (tokenpf != null){
+    let tokenpj = localStorage.getItem("pessoajuridica");
+
+    if (tokenpf != null) {
       this.api.getPessoaPfByEmail(tokenpf).subscribe(re => {
         this.dataservice.setPessoaFisica(re);
         this.pessoafisica = this.dataservice.getPessoaFisica();
         this.nome = this.pessoafisica.nome;
       });
+    } else if (tokenpj != null) {
+      this.api.getPessoaPjByEmail(tokenpj).subscribe(re => {
+        this.dataservice.setPessoaJuridica(re);
+        this.pessoajuridica = this.dataservice.getPessoaJuridica();
+        this.nome = this.pessoajuridica.nome;
+      });
+    } else {
+      alert("Erro ao carregar Do Usuario")
     }
-
-
-
-  //   this.pessoafisica = this.dataservice.getPessoaFisica();
-  //   this.pessoajuridica = this.dataservice.getPessoaJuridica();
-
-  //   if (this.pessoafisica.nome !=null) {
-  //     this.dataservice.setPessoaFisica(this.pessoafisica);
-  //     this.pessoajuridica = this.dataservice.getPessoaJuridica();
-  //     this.nome = this.pessoafisica.nome;
-      
-  //   } else if (this.pessoajuridica.nome != null) {
-  //     this.nome = this.pessoajuridica.nome;
-  //   }
-   }
+  }
 
   sideBarOpen = false;
 
@@ -55,5 +51,7 @@ export class PedirComponent implements OnInit {
   }
 
   value3!: string;
+
+
 
 }
