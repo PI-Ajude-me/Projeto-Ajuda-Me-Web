@@ -1,0 +1,54 @@
+<header>
+  <a routerLink="/homepage">
+    <div class="logo">
+      <img src="../../assets/img/logoajudeme.webp" alt="fotografia de duas mãos dadas">
+      <h3>Ajude.me</h3>
+    </div>
+  </a>
+  <div class="btn-home mobile-login">
+    <a routerLink="/homepage">
+      <h4>&larr; Home</h4>
+    </a>
+  </div>
+</header>
+
+<section class="page-login">
+  <section class="login-user">
+    <h2>Login</h2>
+    <div class="board"></div>
+    <form>
+      <div class="form-group">
+        <span class="p-float-label">
+          <input type="text" pInputText  id="nome"  name="login" [(ngModel)]="login" placeholder="Email address" class="form-control" [ngClass]="">
+          <label for="nome">Usuário</label>
+        </span>
+      </div>
+      <div class="form-group">
+        <span class="p-float-label">
+             <input type="password" pInputText id="senha"  placeholder="Password" name="senha" [(ngModel)]="senha" required class="form-control" [ngClass]="" >
+          <label for="senha">Senha</label>
+        </span>
+      </div>
+      <!-- <a class="btn-login">
+        <button pButton type="submit" (click)="logar()" label="Entrar"></button>
+      </a> -->
+            <!--Alert Component-->
+            <p-toast position="top-center" key="tc"></p-toast>
+            <button type="button" pButton pRipple (click)="logar()" label="Entrar" class="p-button-confirm" ></button>
+      
+            <!--<a class="btn-login" routerLink="/dashboard"></a>-->
+      <div class="linklogin">
+        <p>Não possui cadastro? <a routerLink="/register"> Cadastre-se aqui!</a></p>
+      </div>
+    </form>
+  </section>
+  <section class="login-img">
+    <div class="btn-home desktop-login">
+      <a routerLink="/homepage">
+        <h4>&larr; Home</h4>
+      </a>
+    </div>
+    <div class="imagem-login"></div>
+  </section>
+</section>
+

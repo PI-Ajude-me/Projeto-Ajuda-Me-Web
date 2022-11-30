@@ -1,0 +1,38 @@
+<form class="form-pedir">
+    <div class="form-pedido-ajuda"> 
+        <div class="form-group">  
+          <div class="opcoes-ajuda">
+            <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?" name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria"  optionLabel="opcao" [showClear]="true"> </p-dropdown>
+          </div>
+          <div class="contato-ajuda">
+            <span class="p-float-label">
+              <input id="float-input" type="text" [(ngModel)]="doacao.contato" name="contato" pInputText> 
+              <label for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="descricao-ajuda">
+            <span class="p-float-label">
+              <textarea id="float-input" rows="5" cols="30" [(ngModel)]="doacao.descricao" name="descricao" pInputTextarea style="resize: none;" ></textarea>
+              <label for="float-input">Breve Descrição</label>
+            </span>
+          </div>
+         <div class="enviar-pedir">
+          <p-button (click)="salvar()" abel="Enviar" icon="pi pi-send" ></p-button>
+          <p-dialog header="Sucesso" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [draggable]="false" [resizable]="false">
+            <div class="content-mensagem">
+              <p class="m-0"></p>
+              <img [style]="{width: '12vw'}" src="../../../../assets/img/Ok.gif">
+              <h1>Deu tudo CERTO!</h1>
+            </div>
+            <ng-template pTemplate="footer">
+              <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+            </ng-template>
+          </p-dialog>
+         </div>
+         
+
+        </div>
+    </div>
+</form>

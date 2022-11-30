@@ -1,0 +1,109 @@
+.navlogo {
+  text-align: center;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  img {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin: 0 .5rem 0 -1rem;
+  }
+}
+
+.navlogo h1 {
+  color: var(--cor-azul);
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  margin: .5rem 0 .5rem 0;
+}
+
+.mat-icon {
+  vertical-align: center;
+  margin-right: 1rem;
+}
+
+.mat-divider {
+  border-top-width: 2px;
+  border-color: white;
+}
+.mat-list-item {
+  color: #94a3b8 !important;
+  font-size: 0.8rem;
+  height: 44px !important;
+  margin-bottom: 4px;
+  &:hover {
+    color: #f2f5f7 !important;
+  }
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 5px;
+      margin: 0 8px;
+      &:hover {
+        background: #2564ebb0!important;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+.mat-list-item {
+  color: #94a3b8!important;
+  font-size: .8rem;
+  height: 44px!important;
+  margin-bottom: 4px;
+}
+
+.list-item-active {  
+  color: #f2f5f7 !important;
+  ::ng-deep {
+    .mat-list-item-content {
+      background: var(--cor-azul)!important;
+      &:hover {
+        background: var(--cor-azul) !important;
+      }
+    }
+  }
+}
+.mat-subheader {
+  color: #818cf8;
+  font-size: 0.6rem;
+  font-weight: 100;
+  letter-spacing: .05rem;
+}
+
+
+::ng-deep {
+.mat-drawer {
+  background-image: url('../../../assets/img/ajude-header2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+} 
+
+/*
+.mat-list-base {
+width: 25vw;
+}
+*/
+
+.mat-list-base {
+padding-top: 0!important;
+}
+
+
+.navimg {
+background-image: url('../../../assets/img/goiania.jpg');
+background-size: cover;
+height: 30vh;
+width: 100%;
+} 
+
+.titulo-side h2 {
+margin: 0!important;
+padding: 2rem 1.5rem;
+font-weight: 500;
+color: var(--cor-preta-tom);
+background-color: rgba(0, 0, 0, .05);
+}

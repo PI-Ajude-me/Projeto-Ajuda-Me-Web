@@ -1,0 +1,270 @@
+.menu-homepage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 10rem 0 10rem;
+}
+
+.menu-homepage img { width: 3rem;}
+
+.logo-homepage {
+    display: flex;
+    align-items: center;
+}
+
+.logo-homepage h3 {
+    margin-left: 1rem;
+    color: var(--cor-azul);
+    font-size: 2.5rem;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    margin-bottom: -1px;
+}
+
+.cidade-ajudeme {
+    padding: 1.3rem 0 0 10rem;
+    position: absolute;
+    font-size: .8rem;
+    font-weight: 400;
+    opacity: .7;
+}
+
+:host::ng-deep {
+    .p-menubar {
+        font-size: 1.3rem;
+        background-color: transparent;
+        border: none;
+        opacity: .8;
+    }
+
+    .p-carousel-container {
+        padding: 4rem 6.5rem 0 6.5rem;
+    }
+
+    .p-carousel .p-carousel-indicators 
+    .p-carousel-indicator button {
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+    }
+
+    .p-menubar .p-menubar-root-list > 
+    .p-menuitem > .p-menuitem-link 
+    .p-menuitem-text {
+        color: rgba(0, 0, 0, 0.85);
+    }
+
+
+    .p-carousel .p-carousel-content .p-carousel-next,
+    .p-carousel .p-carousel-content .p-carousel-prev {
+        color: var(--cor-azul);
+    }
+
+    .p-carousel .p-carousel-content .p-carousel-next:hover,
+    .p-carousel .p-carousel-content .p-carousel-prev:hover {
+        background-color: var(--cor-azul);
+        color: var(--cor-branca);
+    }
+
+    .p-button {
+        padding: 1.5rem 8rem;
+        margin: 2rem 1rem 0 1rem;
+    }
+
+    .p-button i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .owl-theme .owl-nav {
+        margin-top: 0;
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        padding: 0 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+ 
+    .owl-theme .owl-nav .owl-next,
+    .owl-theme .owl-nav .owl-prev {
+        width: 1.2rem;
+        height: 1.2rem;
+        border-top: 4px solid rgba(255, 255, 255, 0.7);
+        background-color: transparent;
+        border-radius: 3px;
+    }
+
+    .owl-theme .owl-nav .owl-next {
+        border-right: 4px solid rgba(255, 255, 255, 0.7);
+        transform: rotate(45deg);
+    }
+
+    .owl-theme .owl-nav .owl-prev {
+        border-left: 4px solid rgba(255, 255, 255, 0.7);
+        transform: rotate(-45deg);
+    }
+
+    .owl-theme .owl-nav .owl-prev:hover,
+    .owl-theme .owl-nav .owl-next:hover {
+        border-top: 4px solid var(--cor-branca);
+    }
+
+    .owl-theme .owl-nav .owl-prev:hover {
+        border-left: 4px solid var(--cor-branca);
+    }
+
+    .owl-theme .owl-nav .owl-next:hover {
+        border-right: 4px solid var(--cor-branca);
+    }
+
+    .owl-theme .owl-dots { margin-top: 1rem; }
+
+    .owl-carousel .owl-item { height: 55vh; }
+
+    .owl-theme .owl-dots .owl-dot.active span, 
+    .owl-theme .owl-dots .owl-dot:hover span {
+        background-color: var(--cor-azul);
+    }
+
+    .owl-theme .owl-dots .owl-dot span {
+        border: 1px solid var(--cor-azul);
+        background-color: transparent;
+        opacity: .8;
+    }
+}
+
+.product-item-content .titulo-carousel,
+.product-item-content .subtitulo-carousel {
+    font-weight: 400;
+    opacity: .65;
+}
+
+.product-item-content 
+.titulo-carousel { font-size: 1.1rem; }
+
+.product-item-content 
+.subtitulo-carousel { font-size: 1.3rem; }
+  
+.product-image {
+    width: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 
+    0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.principais-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slides-ajudeme {
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    margin-top: 1rem;
+}
+
+.text-item {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); 
+}
+
+.text-item h4 {
+    padding: 1.5rem 0 0 0;
+    font-size: 1.7rem;
+    color: var(--cor-azul);
+}
+
+
+.text-item p {
+    padding: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.img-item1,
+.img-item2,
+.img-item3 {
+    background-repeat: no-repeat;
+    height: 60vh;
+    background-size: cover;
+}
+
+.img-item1 { background-image: url('../../assets/img/alimentacao.webp'); }
+
+.img-item2 { background-image: url('../../assets/img/saudee.webp'); }
+
+.img-item3 { background-image: url('../../assets/img/construcao.webp'); }
+
+.principais-links a { text-decoration: none; }
+
+@media (max-width: 960px) {
+    .principais-links { flex-direction: column; }
+
+    .menu-homepage { padding: 1rem; }
+
+    .menu-homepage img { width: 2rem; }
+
+    .logo-homepage h3 { font-size: 1.3rem; }
+
+    :host::ng-deep {
+
+        .p-menubar { z-index: 8; }
+
+        .p-button {
+            padding: 1rem 5rem;
+            margin: 2rem 0 0 0;
+            width: 20rem;
+            font-size: 1.2rem;
+        }
+    
+        .p-menubar .p-menubar-root-list {
+            width: 35vw;
+            left: -4rem;
+            padding: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .owl-theme .owl-nav {
+            padding: 0 1rem; 
+            top: 25%;
+        }
+
+        .owl-carousel .owl-item { height: 35vh; }
+
+        .slides-ajudeme { padding: 1rem 0 1rem 0; }
+
+    }
+    
+    .cidade-ajudeme { padding: .3rem 0 0 1rem; }
+
+    .text-item h4 { font-size: 1.2rem; }
+
+    .text-item p { font-size: .8rem; }
+
+    .text-item {
+        margin-bottom: -0.1rem;
+    }
+
+
+    .principais-links { margin-bottom: 2rem; }
+
+    .footer-homepage p { padding: 0 5.2rem; }
+    
+}
+
+.footer-homepage {
+    padding: 2rem 0;
+    margin: 3rem 0 0 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: 10vh;
+}
+
+.footer-homepage p {
+    text-align: center;
+    font-size: .7rem;
+}

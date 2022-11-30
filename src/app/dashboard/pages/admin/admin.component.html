@@ -1,0 +1,41 @@
+  
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div class="board-bem-vindo">
+        <div class="container-fluid page">
+          <div class="d-flex page__box p-3 mt-2">
+              <div class="titulo-admin">
+                  <h1>Bem vindo(a), <span>Usuário</span>!</h1>
+                  <p>
+                      Ficamos felizes por sua ajuda para manter o projeto!
+                  </p>
+              </div>
+          </div>
+          <div class="page__content shadow p-3 position-relative">
+            <div class="page__content-data position-absolute text-center">
+              <div class="painel-admin">
+                <div class="img-adm">
+                  <img src="../../../../assets/img/admins.gif"/>
+                  <h4>*Atenção ADM! Administre os pedidos de ajuda com muito cuidado em cada analise.</h4>
+                </div>
+                
+                <div class="acesso-adm">
+                  <a routerLink="">
+                    <p-button class="btn-conhecer" label="Acesso administradores ">
+                      <i class="bi bi-person-gear"></i>
+                    </p-button>
+                  </a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container> 

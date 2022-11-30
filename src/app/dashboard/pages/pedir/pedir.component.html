@@ -1,0 +1,23 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div class="container-fluid page">
+        <div class="d-flex page__box p-3 mt-2">
+            <div class="titulo-pedir">
+                <h1>Bem vindo(a), <span>{{nome}}</span>! Do que precisa?</h1>
+                <h5>*Preencha o formulário abaixo e peça ajuda!</h5>
+            </div>
+        </div>
+        <div class="page__content shadow p-3 position-relative">
+          <app-pedir-form></app-pedir-form>
+          <div class="table-crud">
+          <app-ajuda-table-pedir></app-ajuda-table-pedir>
+          </div>
+      </div>
+    </div>  
+    </mat-drawer-content>
+</mat-drawer-container>

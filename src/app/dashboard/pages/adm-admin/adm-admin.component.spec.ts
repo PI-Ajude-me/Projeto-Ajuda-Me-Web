@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AdmAdminComponent } from './adm-admin.component';
+
+describe('AdmAdminComponent', () => {
+  let component: AdmAdminComponent;
+  let fixture: ComponentFixture<AdmAdminComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AdmAdminComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(AdmAdminComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

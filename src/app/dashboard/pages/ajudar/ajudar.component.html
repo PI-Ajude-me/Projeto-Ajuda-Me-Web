@@ -1,0 +1,44 @@
+  
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div class="board-bem-vindo">
+        <div class="container-fluid page">
+            <div class="d-flex page__box p-3 mt-2">
+                <div class="title-dash-ajudar">
+                    <p>Bem-vindo(a), <span>{{nome}}</span>!</p>
+                    <h1>Quem deseja ajudar?</h1>
+                </div>
+            </div>
+            <div class="page__content shadow p-3 position-relative">
+              <div class="page__content-data position-absolute text-center">
+                <div class="subtitulo">
+                    <h3>Necessidades mais solicitadas:</h3>
+                </div>
+                <section class="principais-links">
+                    <a routerLink="">
+                        <p-button class="btn-conhecer" label="Saúde">
+                          <i class="bi bi-heart-pulse"></i>
+                        </p-button>
+                    </a>
+                    <a routerLink="">
+                        <p-button class="btn-pedir" label="Alimentar">
+                          <i class="bi bi-bag-heart"></i>
+                        </p-button>
+                    </a>
+                    <a routerLink="">
+                        <p-button class="btn-ajudar" label="Ver todos">
+                          <i class="bi bi-envelope-paper-heart"></i>
+                        </p-button>
+                    </a>
+                </section>
+              </div>
+            </div>
+          </div>
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container>

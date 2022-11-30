@@ -1,0 +1,53 @@
+<header class="menu-homepage">
+    <div class="logo-homepage">
+        <img src="../../assets/img/logoajudeme.webp">
+        <h3>Ajude.me</h3>
+    </div>
+    <p-menubar [model]="menuItems"></p-menubar>
+</header>
+
+<h1 class="cidade-ajudeme">Cidade de Goiânia</h1>
+
+<section class="slides-ajudeme">
+    <div class="containers">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide>
+                <div class="text-item">
+                    <h4>1: Informações sobre alimentação</h4>
+                    <p>Necessidades: itens para cesta básica, gás, leite especial</p>
+                </div>
+                <div class="img-item1"></div>
+            </ng-template>  
+            <ng-template carouselSlide>
+                <div class="text-item">
+                    <h4>2: Informação sobre saúde</h4>
+                    <p>Necessidades: Odontologica, Obstetrica, Fisioterapia</p>
+                </div>
+                <div class="img-item2"></div>
+            </ng-template>  
+            <ng-template carouselSlide>
+                <div class="text-item">
+                    <h4>3: Infomações sobre moradia</h4>
+                    <p>Necessidades: Teias, piso, fogão, geladeira</p>
+                </div>
+                <div class="img-item3"></div>
+            </ng-template>  
+        </owl-carousel-o>
+    </div>
+</section>
+
+<section class="principais-links">
+    <a routerLink="/about">
+        <p-button class="btn-conhecer" label="Conhecer"><i class="pi pi-heart"></i></p-button>
+    </a>
+    <a routerLink="/register">
+        <p-button class="btn-pedir" label="Pedir Ajuda"><i class="pi pi-megaphone"></i></p-button>
+    </a>
+    <a routerLink="/register">
+        <p-button class="btn-ajudar" label="Ajudar"><i class="pi pi-thumbs-up"></i></p-button>
+    </a>
+</section>
+
+<footer class="footer-homepage">
+    <p>Desenvolvido por © Grupo Ajude.Me (P.I - 4º Período - ADS) - FATESG | 2022</p>
+</footer>

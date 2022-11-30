@@ -1,0 +1,148 @@
+.page-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h3 {
+    margin: 0 0 0 .5rem;
+    font-size: 1.5rem;
+    color: var(--cor-azul);
+    font-family: 'Caveat', cursive;
+}
+
+.logo img { width: 1.5rem; }
+
+.btn-home {
+    position: absolute;
+    width: 50%;
+}
+
+.btn-home h4 {
+    font-size: .8rem;
+    color: var(--cor-azul);
+    text-align: right;
+    padding: 2rem 2rem 0 0;
+}
+
+.btn-home a {
+ text-decoration: none;
+}
+
+.btn-home h4:hover {
+    text-decoration: underline;
+}
+
+.login-user {
+    width: 100%;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-user span { margin-bottom: 2rem; }
+
+.login-user span input,
+:host ::ng-deep .p-dropdown {
+    width: 25vw;
+}
+
+.login-user button { font-size: 1.2rem; }
+
+.login-user button {
+    width: 25vw;
+    height: 5rem;
+    margin-top: 2rem;
+}
+
+.login-user h2 {
+    margin-bottom: -0.8rem;
+    background-color: var(--cor-branca);
+    z-index: 2;
+    padding: 0 1rem;
+    color: var(--cor-azul);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.login-user .board {
+    border-bottom: 2px solid var(--cor-azul);
+    width: 25vw;
+    height: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.login-img .imagem-login {
+    background-image: url('../../assets/img/login.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50vw;
+    height: 100vh;
+}
+
+.linklogin {
+    text-align: center;
+    margin-top: .8rem;
+    font-size: .8rem;
+}
+
+.linklogin a {
+    text-decoration: none;
+    color: var(--cor-azul);
+}
+
+.escolhatipocadastro { padding: 0 0 2rem 0; }
+
+.c-tipocnpj { margin: 1rem 0 0 2rem; }
+
+.btn-login {text-decoration: none;}
+
+@media (min-width: 961px) { .mobile-login { display: none;} }
+
+@media (max-width: 960px) {
+    .logo { margin-top: 1.3rem; }
+
+    .page-login {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .login-img .imagem-login,
+    .desktop-login { display: none; }
+    .mobile-login { width: 100%; }
+    .logo h3 { font-size: 1.5rem;}
+    .login-user span input,
+    .login-user button,
+    .login-user .board,
+    :host ::ng-deep .p-dropdown {
+        width: 80vw;
+    }
+
+    .login-user { padding: 7rem 1rem 1rem 1rem; }   
+    
+button {
+    min-width: 10rem;
+    margin-right: .5rem;
+}
+
+@media screen and (max-width: 960px) {
+    button {
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+}
+
+    .p-button.p-button-success, .p-buttonset.p-button-success > 
+    .p-button, .p-splitbutton.p-button-success > .p-button {
+        background-color: var(--cor-azul);
+        border: 1px solid var(--cor-azul);
+    }
+}

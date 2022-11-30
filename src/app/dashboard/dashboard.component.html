@@ -1,0 +1,41 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div class="board-bem-vindo">
+        <div class="container-fluid page">
+          <div class="d-flex page__box p-3 mt-2">
+              <div class="titulo-admin">
+                  <h1>Bem vindo(a), <span>{{pessoafisica.nome}}</span>!</h1>
+                  <p>
+                      Ficamos felizes que tenha se inscrito em nosso projeto!
+                  </p>
+              </div>
+              
+          </div>
+          <div class="page__content shadow p-3 position-relative">
+            <div class="page__content-data position-absolute text-center">
+              <div class="boards">
+                <div class="board-img">
+                  <img src="../../assets/img/grupo.gif">
+                </div>
+                <div class="board-info">
+                  <h3><i class="bi bi-chat-square-text"></i> Para QUEM? </h3>
+                    <p><i class="bi bi-check"></i> Pessoa Física (CPF)</p>
+                    <p><i class="bi bi-check"></i> ONG's Diversas.</p>
+                    <p><i class="bi bi-check"></i> Pessoas que queiram ajudar cadastrando alguém muito carente.</p>
+                    <p><i class="bi bi-check"></i> Pedidos de ajuda para animais em situação de abandono.</p>
+                    <p><i class="bi bi-check"></i> Idosos, crianças ou gravidas carentes.</p>
+                    <p>e... todos que precisam ou querem ajudar!</p>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container>

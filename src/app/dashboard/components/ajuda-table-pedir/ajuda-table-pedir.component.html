@@ -1,0 +1,83 @@
+<nav class="navbar bg-light">
+    <div class="container-fluid" hidden>
+        <a class="navbar-brand"></a>
+  
+          <p-button (click)="showModalDialog(); onAddClick();" label="Cadastrar nova ajuda" icon="pi pi-plus"></p-button>
+
+    </div>
+</nav>
+
+<div class="container mt-2">
+  <table class="table table-hover table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>Usuário</th>
+        <th>Descrição</th>
+        <th>Contato</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ajudaDetails">
+        <td>{{item.usuario}}</td>
+        <td>{{item.descricao}}</td>
+        <td>{{item.contato}}</td>
+        <td>{{item.data}}</td>
+        <td>
+          <button (click)="showModalDialog(); edit(item);"  class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
+          <button (click)="deleteAjudaDetail(item.id)" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="enviar-pedir">
+  <p-dialog header="Pedido de Ajuda" id="" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [draggable]="false" [resizable]="false">
+    <div class="content-mensagem">
+      <p class="m-0"></p>
+      <form [formGroup]="ajudaForm">
+        <div class="mb-3">
+          <!--
+            <label class="form-label">Usuário</label>
+            <input type="text" class="form-control"  placeholder="usuario" formControlName="usuario">
+          -->
+        </div>
+        <div class="mb-3">
+          <span class="p-float-label">
+            <textarea id="float-input" rows="2" cols="20" pInputTextarea style="resize: none;"  class="form-control"  placeholder="" formControlName="descricao"></textarea>
+            <label class="form-label" for="float-input">Descrição</label>
+          </span>
+          <!--
+            <label class="form-label">Descrição</label>
+          <input type="text" class="form-control"  placeholder="example@gmail.com" formControlName="descricao">
+          -->
+          
+        </div>
+        <div class="mb-3">
+          <span class="p-float-label">
+            <input id="float-input" type="tel" pInputText lass="form-control"  placeholder="" formControlName="contato"> 
+            <label class="form-label" for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
+          </span>
+          <!--
+            <label class="form-label">Contato</label>
+            <input type="tel" class="form-control"  placeholder="contato" formControlName="contato">
+          -->
+          
+        </div>
+        <div class="mb-3">
+          <!--
+            <label class="form-label">Data</label>
+            <input type="text" class="form-control"  placeholder="data" formControlName="data">
+          -->
+        </div>
+      </form>
+ 
+    </div>
+    <ng-template pTemplate="footer">
+      <p-button type="button"  icon="" (click)="displayModal=false; reset();" label="fechar" id="close" styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-file-edit" label="Alterar" (click)="updateAjudaDetails()" *ngIf="showUpdateBtn"></p-button>
+      <p-button type="button" icon="pi pi-plus-circle" label="Adicionar" (click)="postAjudaDetails()" *ngIf="showAddBtn"></p-button>
+    </ng-template>
+  </p-dialog>
+ </div>

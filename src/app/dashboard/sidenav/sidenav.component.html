@@ -1,0 +1,36 @@
+<mat-nav-list>
+      <!--
+              <div class="navlogo">
+        <img src="../../assets/img/logoajudeme.webp" alt="Logo Ajude.me" />
+        <h1>Ajude.me</h1>
+      </div>
+      
+      -->
+      <div class="navimg">
+
+      </div>
+
+    <mat-divider></mat-divider>
+   <div class="titulo-side">
+    <h2 matSubheader class="mt-2">PROJETO SOCIAL - CIDADE GOIÂNIA -</h2>
+   </div>
+   
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="list-item-active">
+      <mat-icon>home</mat-icon> Inicio
+    </a>
+    <a *ngIf="ajuda" mat-list-item routerLink="/ajudar" routerLinkActive="list-item-active">
+      <mat-icon>thumb_up_alt</mat-icon> Ajudar
+    </a>
+    <a *ngIf="pedir" mat-list-item routerLink="/pedir" routerLinkActive="list-item-active">
+      <mat-icon>record_voice_over</mat-icon> Pedir
+    </a>
+    <!-- <a mat-list-item routerLink="/userpedir" routerLinkActive="list-item-active">
+      <mat-icon>account_circle</mat-icon> User Pedir
+    </a> -->
+    <a *ngIf="admin" mat-list-item routerLink="/admin" routerLinkActive="list-item-active">
+      <mat-icon>edit</mat-icon> Admin
+    </a>
+    <a *ngIf="admin" mat-list-item routerLink="/adm-admin" routerLinkActive="list-item-active">
+      <mat-icon>brightness_low</mat-icon> Page Adm
+    </a>
+  </mat-nav-list> 

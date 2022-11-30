@@ -1,0 +1,201 @@
+.page-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h3 {
+    margin: 0 0 0 .5rem;
+    font-size: 1.5rem;
+    color: var(--cor-azul);
+    font-family: 'Caveat', cursive;
+}
+
+.logo img { width: 1.5rem; }
+
+.btn-home {
+    position: absolute;
+    width: 50%;
+}
+
+.btn-home h4 {
+    font-size: .8rem;
+    color: var(--cor-branca);
+    text-align: right;
+    padding: 2rem 2rem 0 0;
+}
+
+.btn-home a { text-decoration: none;}
+
+.btn-home h4:hover { text-decoration: underline; }
+
+.cadastro-user {
+    width: 100%;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formularios-de-cadastro form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cadastro-user span { margin-bottom: 2rem; }
+
+.cadastro-user span input,
+:host ::ng-deep .p-dropdown {
+    width: 26vw;
+}
+
+.erro-info {
+    font-size: .8rem;
+    color: var(--cor-vermelha);
+    padding: 0 0 0 .1rem;
+    position: absolute;
+    width: 100%;
+    margin-top: -1.3rem;
+    background-color: var(--cor-branca);
+    z-index: 5;
+}
+
+.selecaocadastro .erro-info {
+    font-size: .8rem;
+    color: var(--cor-vermelha);
+    padding: 0;
+    position: absolute;
+    width: 20vw;
+    margin-top: -1.3rem;
+    background-color: var(--cor-branca);
+    z-index: 5;
+}
+
+.c-razaosocial .p-float-label {
+    font-size: 1rem;
+    padding: 0;
+}
+
+.c-razaosocial .erro-info{
+    width: 20vw;
+    position: absolute;
+    margin-top: -1.3rem;
+    background-color: var(--cor-branca);
+}
+
+.selecaocadastro { padding: .2rem 0 0 0; }
+
+
+.cadastro-user button { font-size: 1.2rem; }
+
+.cadastro-user button {
+    width: 26vw;
+    height: 5rem;
+    margin-top: 1rem;
+}
+
+.cadastro-user h2 {
+    margin-bottom: -0.8rem;
+    background-color: var(--cor-branca);
+    z-index: 2;
+    padding: 0 1rem;
+    color: var(--cor-azul);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cadastro-user .board {
+    border-bottom: 2px solid var(--cor-azul);
+    width: 26vw;
+    height: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cadastro-img .imagem-cadastrar {
+    background-image: url('../../assets/img/cadastro.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50vw;
+    height: 100vh;
+}
+
+.col-2-c-ajudeme { display: flex; }
+
+.cadastro-user .col-2-c-ajudeme span input { width: 12.5vw; }
+
+.col-2-c-ajudeme .c-telefone { margin: 0 0 0 1rem; }
+
+.linklogin {
+    text-align: center;
+    margin-top: .8rem;
+    font-size: .8rem;
+}
+
+.linklogin a {
+    text-decoration: none;
+    color: var(--cor-azul);
+}
+
+.escolhatipocadastro { padding: 0 0 2rem 0; }
+
+.c-tipocnpj {
+    padding: 1rem 0 0 3rem;
+    display: inline-block;
+}
+
+@media (min-height:200px) and (max-height:599px) {
+    .cadastro-img .imagem-cadastrar { height: 150vh; }
+}
+
+@media (min-height:600px) and (max-height:649px) {
+    .cadastro-img .imagem-cadastrar { height: 130vh; }
+}
+
+@media (min-height:650px) and (max-height:770px) {
+    .cadastro-img .imagem-cadastrar { height: 110vh; }
+}
+
+@media (min-width: 961px) { .mobile-cadastro { display: none;} }
+
+@media (max-width: 960px) {
+    .desktop-cadastro { display: none; }
+    .mobile-cadastro{ width: 100%; }
+    .logo h3 { font-size: 1.5rem;}
+    .btn-home h4 { color: var(--cor-azul); }
+}
+
+@media (max-width: 1120px) {
+    .logo { margin-top: 1.3rem; }
+
+    .page-cadastro { 
+        flex-direction: column;
+        padding: 5rem 0 0 0;
+    }
+
+    .cadastro-img .imagem-cadastrar { display: none; }
+
+    .cadastro-user span input,
+    .cadastro-user button,
+    .cadastro-user .board,
+    :host ::ng-deep .p-dropdown { width: 80vw; }
+
+    .col-2-c-ajudeme { display: inline; }
+
+    .cadastro-user .col-2-c-ajudeme span input { width: 80vw; }
+
+    .col-2-c-ajudeme .c-telefone { margin: 0; }
+
+    .cadastro-user { padding: 1rem; }   
+
+    .selecaocadastro .erro-info,
+    .c-razaosocial .erro-info { width: 80vw; }
+    
+}

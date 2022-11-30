@@ -1,0 +1,51 @@
+@import"../../assets/style/style-pages.scss";
+
+.boards {
+    padding: 2rem;
+    margin: 12rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.boards .board-info {
+    width: 22vw;
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin: 0 2rem 0 0;
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, .2);
+    padding: 2rem;
+    border-top: .5rem solid rgba(0, 0, 0, .05);
+    border-radius: 10px;
+}
+
+.boards .board-info h3 {
+    font-size: 1.3rem;
+    color: var(--cor-azul);
+    font-weight: 500;
+    margin: 0 0 2rem 0;
+    text-align: left;
+    background-color: rgba(0, 0, 0, .025);
+    padding: 1rem;
+}
+
+.boards .board-info p {
+    font-size: .95rem;
+    text-align: left;
+    list-style-type: none;
+    color: rgba(0, 0, 0, .5);
+}
+
+.board-img img {
+    width: 25rem;
+}
+
+.board-img {
+    width: 35vw;
+    margin: 0 2rem 0 0;
+    border: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 1rem 0;
+}
+

@@ -1,0 +1,119 @@
+<header>
+    <a routerLink="/homepage">
+        <div class="logo">
+            <img src="../../assets/img/logoajudeme.webp">
+            <h3>Ajude.me</h3>
+        </div>
+    </a>
+    <div class="btn-home mobile-cadastro">
+        <a routerLink="/homepage">
+          <h4>&larr; Home</h4>
+        </a>
+      </div>
+</header>
+
+<section class="page-cadastro">
+    <section class="cadastro-user">
+        <h2>Cadastro</h2>
+        <div class="board"></div>
+        <section class="formularios-de-cadastro">  
+            <form class="form-group escolhatipocadastro">
+                <h3>Deseja cadastrar com: </h3>
+                <div>
+                    <p-radioButton class="c-tipocpf" name="tipocadastro" [(ngModel)]="tipodecadastro" value="CPF" label="CPF"></p-radioButton>
+                    <p-radioButton class="c-tipocnpj" name="tipocadastro" [(ngModel)]="tipodecadastro" value="CNPJ" label="CNPJ"></p-radioButton>
+                </div>
+            </form>
+            <form id="add-form" (ngSubmit)="f.form.valid && postPessoaForm()" #f="ngForm" novalidate [formGroup]="pessoaForm" id="add-form">
+    
+                <div class="form-group">
+                    <span class="p-float-label">
+                        <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
+                            <div *ngIf="nome.errors" class="erro-info">Nome é obrigatório</div>
+                        </div>
+                        <input type="text" pInputText id="nome" name="nome" formControlName="nome" class="form-control"
+                            required />
+                        <label for="nome">Nome</label>
+                    </span>
+                </div>
+
+                <div class="c-razaosocial">
+                    <div *ngIf="tipodecadastro === 'CNPJ'">
+                        <span class="p-float-label">
+                            <!-- <div *ngIf="f.submitted && razaosocial.invalid && tipodecadastro === 'CNPJ'" class="invalid-feedback">
+                                <div *ngIf="razaosocial.errors && tipodecadastro === 'CNPJ'" class="erro-info">Razão Social é obrigatório</div>
+                            </div> -->
+                            <input type="text" pInputText id="razaosocial" name="razaosocial" formControlName="razaosocial"/>
+                            <label for="razaosocial">Razão Social</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-2-c-ajudeme">
+                    <span class="p-float-label">
+                        <div *ngIf="f.submitted && cpf.invalid" class="invalid-feedback">
+                            <div *ngIf="cpf.errors" class="erro-info">{{tipodecadastro}} é obrigatório</div>
+                        </div>
+                        <input type="text" pInputText id="CPF" name="cpf" [mask]="getCpfCnpjMask()" formControlName="cpf"
+                            required />
+                        <label for="cpf">{{tipodecadastro}}</label>
+                    </span>
+
+                    <div class="c-telefone">
+                        <span class="p-float-label">
+                            <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
+                                <div *ngIf="telefone.errors" class="erro-info">Telefone é obrigatório</div>
+                            </div>
+                            <input type="text" pInputText id="telefone" name="telefone" [mask]="getTelefoneMask()"
+                                formControlName="telefone" required />
+                            <label for="telefone">Telefone</label>
+                        </span>
+                    </div>
+                </div>
+    
+                <span class="p-float-label">
+                    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                        <div *ngIf="email.errors?.['required']" class="erro-info">E-Mail é obrigatório</div>
+                        <div *ngIf="email.errors?.['pattern']" class="erro-info">O endereço de e-mail deve conter o caractere @</div>
+                    </div>
+                    <input type="text" pInputText id="email" name="email" formControlName="email" required />
+                    <label for="email">E-mail</label>
+                </span>
+    
+                <span class="p-float-label">
+                    <div *ngIf="f.submitted && senha.invalid" class="invalid-feedback">
+                        <div *ngIf="senha.errors" class="erro-info">Senha é obrigatório</div>
+                        <div *ngIf="senha.errors?.['minLength']" class="erro-info">A senha deve ter mais de 3 caracteres, precisamos de outra</div>
+                    </div>
+                    <input type="password" pInputText id="senha" name="senha" formControlName="senha" required />
+                    <label for="senha">Senha</label>
+                </span>
+    
+                <span class="selecaocadastro">
+                    <div *ngIf="f.submitted && pessoacategoria.invalid" class="invalid-feedback">
+                        <div *ngIf="pessoacategoria.errors" class="erro-info">Categoria Pessoa é obrigatório</div>
+                    </div>
+                    <p-dropdown [options]="opcoes" placeholder="Deseja ajudar ou pedir ajuda?" [showClear]="true"
+                        name="pessoacategoria" formControlName="pessoacategoria"></p-dropdown>
+                </span>
+    
+                <div class="btn-cadastrar">
+                    <button  pButton type="submit" label="Cadastrar"></button>
+                    <div class="linklogin">
+                        <p>Já possui cadastro? <a routerLink="/login">Faça seu login aqui</a></p>
+                    </div>
+                </div>
+    
+            </form>
+        </section>
+    </section>
+    <section class="cadastro-img">
+        <div class="btn-home desktop-cadastro">
+            <a routerLink="/homepage">
+              <h4>&larr; Home</h4>
+            </a>
+        </div>
+        <div class="imagem-cadastrar"></div>
+    </section>
+
+</section>

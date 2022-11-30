@@ -1,0 +1,60 @@
+@import"../../../../assets/style/style-pages.scss";
+:host::ng-deep {
+    .form-pedir .opcoes-ajuda .p-component,
+    .form-pedir .contato-ajuda .p-component {
+        width: 25vw;
+    }
+
+    .form-pedir .descricao-ajuda .p-component {
+        width: 35vw;
+    }
+
+    .form-pedir .enviar-pedir .p-button {
+        float: right;
+        padding: 1.5rem 5rem;
+        font-size: 1.3rem;
+    }
+}
+
+.form-pedir .opcoes-ajuda,
+.form-pedir .descricao-ajuda  {
+    margin: 0 0 2.5rem 0;
+}
+
+
+.titulo-pedir h1 {
+    font-size: 2.5rem;
+}
+
+.titulo-pedir h5 {
+    font-size: 1.2rem;
+}
+
+.titulo-pedir {
+    padding: 1.5rem 0 2.5rem 5rem;
+}
+
+.form-group {
+    margin: 2rem 0;
+}
+
+.form-group label {
+    font-size: 1rem;
+}
+
+.form-pedido-ajuda {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-mensagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-pedir {
+    width: 100%;
+    padding: 2rem;
+}

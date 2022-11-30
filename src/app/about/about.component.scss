@@ -1,0 +1,478 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 10rem;
+    width: 100%;
+    background-color:  rgb(248, 248, 248);
+    position: fixed;
+    z-index: 5;
+}
+
+.navbar a { text-decoration: none; }
+
+.menu-conheca img { width: 3rem;}
+
+.logo-conheca {
+    display: flex;
+    align-items: center;
+}
+
+.logo-conheca h3 {
+    margin-left: 1rem;
+    color: var(--cor-azul);
+    font-size: 2.5rem;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    margin-bottom: -1px;
+}
+
+.container-info-conheca {
+    padding: 15rem 10rem 10rem 10rem;
+    display: flex;
+    width: 100%;
+}
+
+.container-info-conheca .sobre h1 {
+    font-size: 3.5rem;
+    color: var(--cor-preta-tom);
+}
+
+.container-info-conheca .sobre h3 {
+    font-size: 1.1rem;
+    color: rgba(35, 39, 43, .8);
+    padding: 0 0 1rem 0;
+}
+
+.container-info-conheca .sobre { margin: 0 3.5rem 0 0; }
+
+.container-info-conheca .sobre p {
+    color: rgba(0, 0, 0, .7);
+    font-size: .95rem;
+    margin: 1rem 0 0 0;
+}
+
+.container-info-conheca .sobre,
+.container-info-conheca .img-doacoes { width: 50%; }
+
+.container-info-conheca .img-doacoes {
+    background-image: url('../../assets/img/projeto-pessoas.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+    height: 20rem;
+    border-radius: .5rem;
+}
+
+:host::ng-deep {
+    .p-menubar {
+        font-size: 1.3rem;
+        background-color: transparent;
+        border: none;
+        opacity: .8;
+    }
+
+    .p-menubar .p-menubar-root-list > 
+    .p-menuitem > .p-menuitem-link 
+    .p-menuitem-text {
+        color: rgba(0, 0, 0, 0.85);
+    }
+
+    .p-button {
+        padding: 1.5rem 5rem;
+        margin: 2rem 1rem 0 1rem;
+        width: 25rem;
+        box-shadow: .1rem .3rem .8rem rgba(0, 0, 0, 0.1);
+    }
+
+    .p-button i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+}
+
+.con  .sub {
+    text-align: center;
+    font-weight: bold;
+}
+
+.con  .sub p { font-size: .8rem; }
+
+.principal h2 { margin: 0 0 1rem 0; }
+
+
+.principal .cards-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-info {
+    border: 3px dotted var(--cor-azul);
+    padding: 1.5rem;
+}
+
+.co {
+    border-left: 3px dotted var(--cor-azul);
+    height: 8rem;
+    margin: 0 0 0 2rem;
+}
+
+.faq {
+    border: 3px dotted var(--cor-azul);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.faq .imagem,
+.faq .texto  {
+    width: 50%;
+    padding: 0 2rem;
+}
+
+.faq .imagem img { width: 100%; }
+
+.faq h4 {
+    color: var(--cor-azul);
+    margin: 0 0 1rem 0;
+}
+
+.faq h5 {
+    margin: 2rem 0 .5rem 0;
+}
+
+.principal a { text-decoration: none; }
+
+.principal {
+    background-color: rgba(128, 128, 128, 0.089);
+    width: 100%;
+}
+
+.depoimentos {
+    padding: 8rem 10rem 4rem 10rem;
+}
+
+.depos {
+    display: flex;
+    align-items: flex-start;
+    margin: 2rem 0 0 0;
+}
+
+.depos .item { text-align: center; }
+
+.depos .item p { padding: 1rem 2rem; }
+
+.depos .item img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.footer-conheca {
+    padding: 2rem 0;
+    margin: 3rem 0 0 0;
+    background-color: var(--cor-preta-tom);
+    width: 100%;
+    height: 35vh;
+}
+
+.footer-conheca p {
+    text-align: center;
+    font-size: .7rem;
+    color: var(--cor-branca);
+}
+
+.principal {
+    padding: 3rem 10rem;
+    width: 100%;
+}
+
+.principal img {
+    background-size: cover;
+    width: 25%;
+    border-radius: 5rem 5rem 5rem 0;
+    margin: 0 1rem;
+}
+
+.pedir h2,
+.ajudar h2 {
+    text-align: center;
+    margin: 0 0 2rem 0;
+    border-bottom: 8px solid rgba(128, 128, 128, 0.089);
+    padding: 1rem;
+    border-radius: .5rem .5rem 0 0;
+    width: 100%;
+    color: var(--cor-azul);
+}
+
+.pedir,
+.ajudar {
+    padding: 0 0 1rem 0;
+    background-color: var(--cor-branca);
+    border-radius: .5rem;
+    box-shadow: .1rem .3rem .5rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pedir p,
+.ajudar p {
+    padding: 0 1rem 0 1rem;
+    width: 25rem;
+    margin: 1rem 0;
+}
+
+.voluntariar {
+    background-color: var(--cor-azul);
+    padding: 1rem 2rem;
+    margin: 1rem 0 0 0;
+}
+
+.voluntariar ol {
+    color: var(--cor-branca);
+    font-size: .8rem;
+    width: 10rem;
+}
+
+.voluntariar .btn-ajudar {
+    width: 10rem;
+}
+
+.voluntariar h2 {
+    font-size: 1rem;
+    color: var(--cor-branca);
+}
+
+.conexao {
+    border: 3px solid var(--cor-azul);
+    background-color: var(--cor-azul);
+    width: 50%;
+}
+
+.conexao2 {
+    border: 3px solid var(--cor-azul);
+    background-color: var(--cor-azul);
+    width: 50%;
+}
+
+.deco {
+    background-image: url('../../assets/img/hands.webp');
+    background-size: contain;
+    height: 30.5vh;
+    margin-bottom: -3.5rem;
+   
+}
+
+
+.con {
+    color: var(--cor-azul);
+    margin: 0 .2rem;
+}
+
+.footer-conheca {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 10rem 1rem 10rem;
+}
+
+.footer-conheca .item {
+    width: 23.33%;
+    height: 2rem;
+    color: var(--cor-branca);
+}
+
+.footer-conheca .item h4 {
+    margin: 0 0 1rem 0;
+}
+
+.item h4 {
+    font-size: 1.1rem;
+}
+
+.ja-cadastrado i {
+    margin: 0 .3rem;
+    font-size: .8rem;
+}
+
+.ja-cadastrado {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem .5rem;
+    border-radius: .3rem;
+}
+
+.ja-cadastrado span {
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.ja-cadastrado p {
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+.ja-cadastrado p a,
+.voluntario .enviar-email a {
+    color: var(--cor-branca);
+    text-decoration: none;
+}
+
+.ja-cadastrado p a:hover,
+.voluntario .enviar-email a:hover {
+    text-decoration: underline;
+}
+
+.voluntario {
+    border-left: 1rem solid rgba(255, 255, 255, 0.05);
+}
+
+.voluntario p {
+    text-align: left;
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.voluntario .v-desc {
+    padding: .5rem .5rem 0 .5rem;
+}
+
+.voluntario .enviar-email span {
+    font-size: .7rem;
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.voluntario .enviar-email {
+    padding: 0 .5rem .5rem .5rem;
+    margin: .5rem 0 0 0;
+}
+
+.voluntario .enviar-email i {
+    margin-right: .3rem;
+    font-size: .8rem;
+}
+
+.voluntario .enviar-email p {
+    font-size: 1rem;
+    color: var(--cor-branca);
+}
+
+.compartilhar i {
+    font-size: 1.5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.compartilhar i:hover {
+    color: var(--cor-azul);
+    background-color: var(--cor-branca);
+}
+
+.compartilhar a {
+    margin: 1rem 1rem 0 0;
+    color: var(--cor-branca);
+}
+
+@media (max-width: 900px) {
+    .principal { flex-direction: column; }
+
+    .menu-conheca img { width: 2rem; }
+
+    .logo-conheca h3 { font-size: 1.3rem; }
+
+    :host::ng-deep {
+
+        .p-menubar { z-index: 8; }
+
+        .p-button {
+            padding: 1rem 5rem;
+            margin: 2rem 0 0 0;
+            width: 18rem;
+            font-size: 1rem;
+        }
+    
+        .p-menubar .p-menubar-root-list {
+            width: 35vw;
+            left: -4rem;
+            padding: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .p-button i {
+            font-size: 1rem;
+            margin-right: .3rem;
+        }
+
+    }
+
+    .container-info-conheca .sobre h1 {
+        font-size: 2.45rem;
+    }
+
+    .container-info-conheca .sobre h3 {
+        font-size: .9rem;
+    }
+
+    .container-info-conheca .sobre p {
+        font-size: .8rem;
+    }
+
+    .principal { margin-bottom: 2rem; padding: 0; }
+
+    .container-info-conheca,
+    .principal {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .container-info-conheca {
+        padding: 7rem 1rem 3rem 1rem;
+    }
+
+    .principal .cards-info .pedir {
+        margin: 2rem 0;
+    }
+
+    .footer-conheca {
+        padding: 2rem 0;
+        display: inline-grid;
+        justify-content: center;
+        height: 28rem;
+    }
+
+    .conexao, .conexao2, .con , .con  span,
+    .container-info-conheca .img-doacoes,
+    .co, .faq, .depoimentos { display: none; }
+
+    .navbar { padding: 1rem; }
+    
+    .container-info-conheca .sobre, 
+    .container-info-conheca .img-doacoes,
+    .footer-conheca .item,
+    .pedir p, 
+    .ajudar p { width: 100%; }
+
+    .cards-info {
+        flex-direction: column;
+        border: none;
+    }
+
+    .deco {
+        margin-bottom: -13rem;
+        background-repeat: no-repeat;
+    }
+
+    .footer-conheca .item {
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-conheca .compartilhar {
+        margin: 4rem 0 0 0;
+    }
+
+}

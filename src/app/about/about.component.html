@@ -1,0 +1,199 @@
+<header class="menu-conheca">
+    <nav class="navbar">
+        <a routerLink="/homepage">
+            <div class="logo-conheca">
+                <img src="../../assets/img/logoajudeme.webp">
+                <h3>Ajude.me</h3>
+            </div>
+        </a>
+        <p-menubar [model]="menuItems"></p-menubar>
+    </nav>
+</header>
+
+<section class="container-info-conheca">
+    <section class="sobre">
+        <h1>Projeto Ajude.me </h1>
+        <h3>Conectando quem precisa a quem quer ajudar!</h3>
+        <p>
+            Somos uma organização sem fins lucrativos e independente, com o objetivo de facilitar o contato entre as pessoas que
+            estão precisando de ajuda em determinada área específica a pessoas que podem que desejam ajudar.
+        </p>
+        <p>
+            Diante da crise pós pandemia que afeta o mundo, principalmente econômica, olhamos para nossa sociedade brasileira, 
+            na qual voltou ao mapa da fome e também possuí problemas na área da saúde, educação, habitacionais e outros.
+        </p>
+        <p>
+            Através da nossa plataforma buscamos uma ajuda para os habitantes da nossa cidade Goiânia. O projeto visa amenizar a necessidade humana
+            por meio da solidariedade, de pessoas que desejam ajudar e buscam fazer boas ações para pessoas que necessitam e muito de uma ajuda.
+            Seja a ajuda qual for e por menor que seja, toda ajuda é muito bem-vinda!
+        </p>
+    </section>
+    <section class="img-doacoes"></section>
+</section>
+
+<main class="principal">
+    <article class="cards-principais">
+        <div class="cards-info">
+            <div class="pedir">
+                <h2>Precisa de ajuda?</h2>
+                <p>
+                    Se você precisa de ajuda com alimento, educação, saúde,
+                    problemas habitacionais ou outro tipo de auxílio.
+                    <br><br>
+                    Solicete uma ajuda agora!
+                </p>
+                <p>
+                    Clique no botão abaixo e realize o seu cadastro.
+                </p>
+                <a routerLink="/cadastro">
+                    <p-button class="btn-pedir" label="Pedir Ajuda"><i class="pi pi-megaphone"></i></p-button>
+                </a>
+            </div>
+        
+            <div class="conexao"></div>
+            <div>
+                <div class="con">
+                    <div class="sub">
+                        <p>● ● ● Conectando <i class="pi pi-users"></i></p>
+                    </div>
+        
+                </div>
+            </div>
+           
+            
+            <div class="conexao2"></div>
+    
+            
+            
+            <div class="ajudar">
+                <h2>Quer ajudar?</h2>
+                <p>
+                    A sua contribuição atravez de alimento, brinquedos, móveis ou outro tipo de doação,
+                    faz a diferença na vida de outra pessoa.
+                    <br><br>
+                    Você pode nos ajudar!?
+                </p>
+                <p>
+                    Clique no botão abaixo e realize o seu cadastro.
+                </p>
+                <a routerLink="/cadastro">
+                    <p-button class="btn-ajudar" label="Ajudar"><i class="pi pi-thumbs-up"></i></p-button>
+                </a>
+            </div>
+           
+    
+        </div>
+    </article>
+    
+    <section class="co"></section>
+
+   <section class="faq">
+        <div class="texto">
+            <h4>Como funciona?</h4>
+            <p-accordion>
+                <p-accordionTab header="1 → Cadastrar ( Solicitando ou Ajudando)">
+                    Prático e simples.
+                    <br>
+                    Na realização do cadastro, basta você selecionar a caixinha de qual opção você deseja seguir
+                    e preencher os demais campos solicitados.
+                </p-accordionTab>
+                <p-accordionTab header="2 → Acessar o painel para descrever ou selecionar ajuda">
+                    No cadastro da ajuda, selecione qual tipo de auxílio esta precisando, e preencha os demais campos
+                    solicitados.
+                </p-accordionTab>
+                <p-accordionTab header="3 → Participar ou verificar os pedidos de ajuda">
+                    Na listagem apresentada, verifique o sua ajuda ou selecione um pedido, e ajude o proximo.   
+                </p-accordionTab>
+            </p-accordion>
+
+            <h5><i class="pi pi-exclamation-circle"></i> Informação adicional para quem precisa de ajuda: </h5>
+            <p-accordion>
+                <p-accordionTab header="Fique atento!">
+                Para você que está em busca de ajuda. Fique muito atento ao telefone cadastrado!
+                É por meio dele que a pessoa que irá te ajudar vai entrar em contato. 
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+        <div class="imagem">
+            <img src="../../assets/img/co.gif" alt="conversando">
+        </div>
+   </section>
+</main>
+
+<section class="depoimentos">
+    <h2><i class="pi pi-comments"></i> Depoimentos: </h2>
+    <h5>Pessoas que já ajudam em nosso projeto</h5>
+    <section class="depos">
+        <div class="item">
+            <img src="../../assets/img/senhora.png" alt="foto-ficticia">
+            <p>
+                Joaquina Ribeiro
+                <br><br>
+                Graças a essa plataforma, consegui encotrar um senhor estremamente gentil, que me ajudou com briquedos 
+                e alimentos para os meus dois filhos queridos.
+                desejo sucesso para sua carreira de imperador galáctico e obrigado a equipe do Ajuda.me
+            </p>
+        </div>
+        <div class="item">
+            <img src="../../assets/img/senhora.png" alt="foto-ficticia">
+            <p>
+                Irene Silva
+                <br><br>
+                Eu adorei a criação dessa plataforma, eu sempre quis ajudar as pessoas mas não encotrava direito uma maneira
+                facil de realizar uma doação, mas agora consigo fazer a diferença tendo um contato com quem estou ajudando,
+                 e trazer feliciade na vida da pessoa.
+            </p>
+        </div>
+        <div class="item">
+            <img src="../../assets/img/senhora.png" alt="foto-ficticia">
+            <p>
+                Manoel Gomes
+                <br><br>
+                Estou muito feliz por conseguir falar com gente abençoada por Deus, que pode me fornece 
+                canetas da cor azul que estava em falta na minha casa, abrigado pessoal, obrigado Ajuda.me
+            </p>
+        </div>
+    </section>
+</section>
+
+<div class="deco"></div>
+
+<footer class="footer-conheca">
+    <div class="item">
+        <div class="ja-cadastrado">
+            <p>
+                <span>Já tem cadastro? </span>
+                <a routerLink="/cadastro">
+                    <i class="pi pi-user"></i> Faça seu login aqui!
+                </a>
+            </p>
+        </div>
+        
+    </div>
+    <div class="item">
+        <h4>Quer ser um voluntário do projeto?</h4>
+        <div class="voluntario">
+            <p class="v-desc">
+                Nos ajude a administrar os pedidos no ajude.me,
+                <br>você usa seu tempo livre e ajuda nossa plataforma. 
+                <br>Quer saber mais?
+            </p>
+            <div class="enviar-email">
+                <span>Envie um e-mail para: </span>
+                <a href="mailto:ajude.me@email.com">
+                    <p><i class="pi pi-envelope"></i> ajude.me@email.com</p>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <div class="item">
+        <div class="compartilhar">
+            <h4>Siga-nos e compartilhe essa ideia:</h4>
+            <a href=""><i class="pi pi-instagram"></i></a>
+            <a href=""><i class="pi pi-facebook"></i></a>
+            <a href=""><i class="pi pi-twitter"></i></a>
+            <a href=""><i class="pi pi-youtube"></i></a>
+        </div>
+    </div>
+</footer>

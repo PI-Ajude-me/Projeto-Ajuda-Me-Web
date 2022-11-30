@@ -1,0 +1,18 @@
+{
+  "cadastroajuda": [
+    {
+      "id": 1,
+      "usuario": null,
+      "descricao": "Cesta Básica",
+      "contato": "(62) 3860-1528",
+      "data": null
+    },
+    {
+      "id": 2,
+      "usuario": null,
+      "descricao": "Tratamento dentário (extração sizo)",
+      "contato": "(62) 99422-3797",
+      "data": null
+    }
+  ]
+}
