@@ -1,12 +1,12 @@
 <form class="form-pedir">
     <div class="form-pedido-ajuda"> 
         <div class="form-group">  
-          <div class="opcoes-ajuda">
-            <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?" name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria" [showClear]="true"> </p-dropdown>
+          <div class="opcoes-ajuda" required>
+            <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?"  name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria" [showClear]="true" > </p-dropdown>
           </div>
           <div class="contato-ajuda">
             <span class="p-float-label">
-              <input id="float-input" type="text" [(ngModel)]="doacao.contato" name="contato" [mask]="getTelefoneMask()" pInputText> 
+              <input id="float-input" type="text" [(ngModel)]="doacao.contato" required name="contato" [mask]="getTelefoneMask()" pInputText> 
               <label for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
             </span>
           </div>
@@ -14,12 +14,12 @@
         <div class="form-group">
           <div class="descricao-ajuda">
             <span class="p-float-label">
-              <textarea id="float-input" rows="5" cols="30" [(ngModel)]="doacao.descricao" name="descricao" pInputTextarea style="resize: none;" ></textarea>
+              <textarea id="float-input" rows="5" cols="30" [(ngModel)]="doacao.descricao" required name="descricao" required pInputTextarea style="resize: none;" ></textarea>
               <label for="float-input">Breve Descrição</label>
             </span>
           </div>
          <div class="enviar-pedir">
-          <p-button (click)="salvar()" abel="Enviar" icon="pi pi-send" ></p-button>
+          <p-button (click)="salvar()" abel="Enviar" valid icon="pi pi-send" ></p-button>
           <p-dialog header="Sucesso" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [draggable]="false" [resizable]="false">
             <div class="content-mensagem">
               <p class="m-0"></p>
