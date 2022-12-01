@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem("pi_ajuda_me_access_token");
     localStorage.removeItem("pessoafisica");
     localStorage.removeItem("pessoajuridica");
-    this.loginService.login(this.login, this.senha).subscribe(r => {
+    this.loginService.login(this.login.trim(), this.senha.trim()).subscribe(r => {
       let token = r.access_token;
       this.email = r.login;
       if (token != null&& r.tipo!) {

@@ -1,12 +1,13 @@
 <form class="form-pedir">
     <div class="form-pedido-ajuda"> 
         <div class="form-group">  
+
           <div class="opcoes-ajuda" required>
             <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?"  name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria" [showClear]="true" > </p-dropdown>
           </div>
           <div class="contato-ajuda">
             <span class="p-float-label">
-              <input id="float-input" type="text" [(ngModel)]="doacao.contato" required name="contato" [mask]="getTelefoneMask()" pInputText> 
+              <input id="float-input" type="text" [(ngModel)]="doacao.telefone" required name="contato" [mask]="getTelefoneMask()" pInputText> 
               <label for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
             </span>
           </div>
@@ -30,9 +31,12 @@
               <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" (click) =locationreload() styleClass="p-button-text"></p-button>
             </ng-template>
           </p-dialog>
-         </div>
-         
 
+          <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+            <small *ngIf="mensagem" class="text-danger support-text">{{mensagem}}</small>            
+          </div>
+          
+         </div>
         </div>
     </div>
 </form>

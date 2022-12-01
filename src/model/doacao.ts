@@ -5,7 +5,7 @@ export class Doacao{
     id?: number;
     descricao?: string;
     data?: Date;
-    contato?: string;
+    telefone?: string;
     doacaocategoria?:DoacaoCategoria;
     fisica?:PessoaFisica;
     juridica?:PessoaJurica;
