@@ -31,14 +31,14 @@ export class PessoaService {
       )
   }
 
-    // Obtem um Pessoa juridica pelo id
-    getPessoaPjById(id: any): Observable<PessoaJurica> {
-      return this.httpClient.get<PessoaJurica>(`${environment.url}/pessoajuridica/` + id)
-        .pipe(
-          retry(2),
-          catchError(this.handleError)
-        )
-    }
+  // Obtem um Pessoa juridica pelo id
+  getPessoaPjById(id: any): Observable<PessoaJurica> {
+    return this.httpClient.get<PessoaJurica>(`${environment.url}/pessoajuridica/` + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 
   // Obtem um Pessoa fisica pelo email
   getPessoaPfByEmail(email: any): Observable<PessoaFisica> {
@@ -83,9 +83,18 @@ export class PessoaService {
       )
   }
 
-  // utualiza um Pessoa
-  updatePessoa(pessoafisica: PessoaFisica): Observable<PessoaFisica> {
-    return this.httpClient.put<PessoaFisica>(`${environment.url}/pessoafisica/` + '/' + pessoafisica.id, pessoafisica)
+  // atualiza um Pessoa Fisica
+  updatePessoaPf(pessoafisica: PessoaFisica): Observable<PessoaFisica> {
+    return this.httpClient.put<PessoaFisica>(`${environment.url}/pessoafisica/` + pessoafisica.id, pessoafisica)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // atualiza um Pessoa Juridica
+  updatePessoaPj(pessoajuridica: PessoaJurica): Observable<PessoaJurica> {
+    return this.httpClient.put<PessoaJurica>(`${environment.url}/pessoafisica/` + pessoajuridica.id, pessoajuridica)
       .pipe(
         retry(1),
         catchError(this.handleError)
@@ -93,13 +102,22 @@ export class PessoaService {
   }
 
   // deleta um Pessoa
-  deletePessoa(pessoafisica: PessoaFisica) {
-    return this.httpClient.delete<PessoaFisica>(`${environment.url}/pessoafisica/` + '/' + pessoafisica.id)
+  deletePessoaPf(pessoafisica: PessoaFisica) {
+    return this.httpClient.delete<PessoaFisica>(`${environment.url}/pessoafisica/` + pessoafisica.id)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
+
+    // deleta um Pessoa
+    deletePessoaPj(pessoajuridica: PessoaJurica) {
+      return this.httpClient.delete<PessoaJurica>(`${environment.url}/pessoafisica/` + pessoajuridica.id)
+        .pipe(
+          retry(1),
+          catchError(this.handleError)
+        )
+    }
 
   // Manipulação de erros
   handleError(error: HttpErrorResponse) {

@@ -1,3 +1,4 @@
+import { DoacaoCategoria } from './../../../../model/enums/doacaocategoria';
 import { Component, OnInit, Pipe } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Doacao } from 'src/model/doacao';
@@ -26,21 +27,34 @@ export class AjudaTablePedirComponent implements OnInit {
 
   displayModal: boolean = false;
 
+  opcoesajuda: any;
+  selectedDoacao?: Doacao;
+
   showModalDialog() {
     this.displayModal = true;
   }
 
-  ajudaForm!: FormGroup;
-  ajudaModel: any;
-  ajudaDetails: any;
+  //ajudaForm!: FormGroup;
+  //ajudaModel: any;
+ // ajudaDetails: any;
   showAddBtn: boolean = true;
   showUpdateBtn: boolean = false;
 
 
-  constructor(private api: ApiServiceService, private fb: FormBuilder, private dataservice: DataserviceService, private apiDoacao: DoacaoService, private apiPessoa: PessoaService) { }
+  constructor(private api: ApiServiceService, private dataservice: DataserviceService, private apiDoacao: DoacaoService, private apiPessoa: PessoaService) { }
 
   ngOnInit(): void {
-    this.createAjudaForm();
+
+    this.opcoesajuda = [
+      { label: "SAUDE", value: 0 },
+      { label: "ALIMENTAR", value: 1 },
+      { label: "HABITACIONAL", value: 2 },
+      { label: "VESTIMENTA", value: 3 },
+      { label: "VETERINÁRIA", value: 4 },
+      { label: "MÓVEIS", value: 5 },
+      { label: "OUTROS", value: 6 },
+    ];
+
     let tokenpf = localStorage.getItem("pessoafisica");
     let tokenpj = localStorage.getItem("pessoajuridica");
 
@@ -66,17 +80,6 @@ export class AjudaTablePedirComponent implements OnInit {
       alert("Erro ao carregar Do Usuario")
       this.getAllDoacoes();
     }
-
-  }
-
-  createAjudaForm() {
-    this.ajudaForm = this.fb.group({
-      id: [''],
-      usuario: [''],
-      descricao: [''],
-      contato: [''],
-      data: []
-    })
   }
 
   getAllDoacoes() {
@@ -100,56 +103,47 @@ export class AjudaTablePedirComponent implements OnInit {
     this.showUpdateBtn = false;
   }
 
-  postAjudaDetails() {
-    this.ajudaModel = Object.assign({}, this.ajudaForm.value);
+  // postDoacaoDetails() {
+  //   this.ajudaModel = Object.assign({}, this.ajudaForm.value);
+  //   this.api.postAjuda(this.ajudaModel).subscribe(res => {
+  //     alert("Ajuda cadastrada com sucesso!");
+  //     let close = document.getElementById('close');
+  //     close?.click();
+  //     this.ajudaForm.reset();
+  //     this.getAllDoacoes();
+  //   }, err => {
+  //     alert("Error");
+  //   })
+  // }
 
-    this.api.postAjuda(this.ajudaModel).subscribe(res => {
-      alert("Ajuda cadastrada com sucesso!");
-      let close = document.getElementById('close');
-      close?.click();
-      this.ajudaForm.reset();
+  deleteDoacao(doacao: Doacao) {
+    this.apiDoacao.deleteDoacao(doacao).subscribe(res => {
+      alert("Doação excluida com sucesso!");
       this.getAllDoacoes();
     }, err => {
-      alert("Error");
+      alert("Falha ao excluir Doação");
     })
   }
 
-  deleteAjudaDetail(id: any) {
-    this.api.deleteAjuda(id).subscribe(res => {
-      alert("Ajuda excluida com sucesso!");
-      this.getAllDoacoes();
-    }, err => {
-      alert("Falha ao excluir ajuda");
-    })
-  }
-
-  edit(ajuda: any) {
+  editDoacao(doacao: Doacao) {
     this.showAddBtn = false;
     this.showUpdateBtn = true;
-    this.ajudaForm.controls['id'].setValue(ajuda.id);
-    this.ajudaForm.controls['usuario'].setValue(ajuda.usuario);
-    this.ajudaForm.controls['descricao'].setValue(ajuda.descricao);
-    this.ajudaForm.controls['contato'].setValue(ajuda.contato);
-    this.ajudaForm.controls['data'].setValue(ajuda.data);
+    this.apiDoacao.getDoacaoById(doacao.id).subscribe(res => {
+      this.doacao = res;
+    });
   }
 
   updateAjudaDetails() {
-    this.ajudaModel = Object.assign({}, this.ajudaForm.value);
-    this.api.updateAjuda(this.ajudaModel, this.ajudaModel.id).subscribe(res => {
+    this.doacao.data = new Date;
+    this.apiDoacao.updateDoacao(this.doacao).subscribe(res => {
       alert("Alteração feita com sucesso!");
+     // this.getAllDoacoes();
       let close = document.getElementById('close');
       close?.click();
-      this.getAllDoacoes();
-      this.ajudaForm.reset();
-      this.ajudaModel = {};
+      this.locationreload();
     }, err => {
       alert("Erro! Não foi possivel alterar");
-    })
-  }
-
-  reset() {
-    this.ajudaForm.reset();
-    this.ajudaModel = {};
+    });
   }
 
   getTelefoneMask(): string {
@@ -160,4 +154,8 @@ export class AjudaTablePedirComponent implements OnInit {
     return contato;
   }
 
+  locationreload() {
+    // To reload the entire page from the server
+    location.reload();
+  }
 }

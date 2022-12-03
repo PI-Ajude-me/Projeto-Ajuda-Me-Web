@@ -42,6 +42,7 @@ import { LoginService } from 'src/service/login.service';
 import { HttpInterceptorAuth } from '../shared/http-interceptor';
 import { AuthGuardService } from '../shared/auth-guard-service';
 import {ToastModule} from 'primeng/toast';
+import { NgPipesModule } from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {ToastModule} from 'primeng/toast';
     MatMenuModule,
     MatIconModule,
     DialogModule,
-    ToastModule
+    ToastModule,
+    NgPipesModule
   ],
   providers: [
     LoginService,AuthGuardService,

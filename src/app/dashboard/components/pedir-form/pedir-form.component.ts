@@ -24,6 +24,8 @@ export class PedirFormComponent implements OnInit {
 
   mensagem: string = "";
 
+  testedata: boolean = true;
+
   constructor(private apiDoacao: DoacaoService, private dataservice: DataserviceService, private api: PessoaService,) { }
 
   ngOnInit(): void {
@@ -36,7 +38,8 @@ export class PedirFormComponent implements OnInit {
       { label: "MÓVEIS", value: 5 },
       { label: "OUTROS", value: 6 },
     ];
-    this.doacao.data = new Date;
+
+    // this.doacao.data = new Date;
 
     let tokenpf = localStorage.getItem("pessoafisica");
     let tokenpj = localStorage.getItem("pessoajuridica");
@@ -47,7 +50,9 @@ export class PedirFormComponent implements OnInit {
         this.pessoafisica = this.dataservice.getPessoaFisica();
         this.doacao.fisica = this.pessoafisica;
         this.apiDoacao.getDoacaoByPessoaFisica(re.id).subscribe(pf => {
-          this.doacoes = pf;
+          pf.forEach(element => {
+            this.intervaloDataValidator(element.data)
+          });
         });
       });
     } else if (tokenpj != null) {
@@ -56,20 +61,14 @@ export class PedirFormComponent implements OnInit {
         this.pessoajuridica = this.dataservice.getPessoaJuridica();
         this.doacao.juridica = this.pessoajuridica;
         this.apiDoacao.getDoacaoByPessoaJuridica(re.id).subscribe(pf => {
-          this.doacoes = pf;
+          pf.forEach(element => {
+            this.intervaloDataValidator(element.data)
+          });
         });
       });
     } else {
       alert("Erro ao carregar Do Usuario")
     }
-    this.doacoes?.forEach(element => {
-      element.data
-    });
-
-    const valorDataInicial = "12-30-2022";
-    const data = new Date(valorDataInicial);
-    console.log(data);
-    console.log(this.intervaloDataValidator(data))
   }
 
   displayModal: boolean = false;
@@ -80,14 +79,16 @@ export class PedirFormComponent implements OnInit {
 
   salvar() {
     if (this.validarCampos()) {
-      if (this.intervaloDataValidator(new Date)) {
-
+      if (this.testedata) {
+        this.apiDoacao.saveDoacao(this.doacao).subscribe(res => {
+          this.showModalDialog();
+        }, err => {
+          alert("Error");
+        });
+      } else {
+        this.locationreload();
+        alert("Só pode Uma Doação por Mês");
       }
-      this.apiDoacao.saveDoacao(this.doacao).subscribe(res => {
-        this.showModalDialog();
-      }, err => {
-        alert("Error");
-      })
     }
   }
 
@@ -97,7 +98,6 @@ export class PedirFormComponent implements OnInit {
 
   validarCampos(): boolean {
     let resp: boolean = true;
-    console.log(this.doacao.fisica);
     if (this.doacao.doacaocategoria == null) {
       this.mensagem = "Todos os Campos São Obrigatório! ";
       resp = false;
@@ -116,33 +116,14 @@ export class PedirFormComponent implements OnInit {
     location.reload();
   }
 
-  // intervaloDataValidator(){
-
-  // }
-
-  intervaloDataValidator(dataInicial: Date, intervalorMinimo: number = 29): boolean {
-    //return (formGroup: AbstractControl): ValidationErrors | null => {
-    let resp: boolean = true;
-    // Etapa 1
-
-    //const valorDataInicial = nomeCampo1;
-    // const valorDataFinal = nomeCampo2;
-    // dataFinal: new Date();
-    // Etapa 2
-    //const dataInicial = new Date(valorDataInicial);
+  intervaloDataValidator(data: Date): boolean {
+    let resp: boolean = false;
+    const dataInicial = new Date(data);
     const dataFinal = new Date();
+    const diferencaEmDias = (dataFinal.getTime() - dataInicial.getTime()) / (1000 * 60 * 60 * 24);
 
-    // Etapa 3
-    const diferencaEmDias =
-      (dataInicial.getTime() - dataFinal.getTime())
-      / (1000 * 60 * 60 * 24);
-
-    // Etapa 4
-    console.log(diferencaEmDias);
-    // const intervaloData = diferencaEmDias - intervalorMinimo;
-    // console.log(intervaloData)
-
-    if (diferencaEmDias > intervalorMinimo) {
+    if (diferencaEmDias < 30) {
+      this.testedata = false;
       return resp = false;
     }
     return resp;

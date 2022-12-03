@@ -56,7 +56,6 @@ export class DoacaoService {
 
   // salva um Pessoa
   saveDoacao(doacao: Doacao): Observable<Doacao> {
-    console.log(doacao)
     return this.httpClient.post<Doacao>(`${environment.url}/doacoes/`, doacao)
       .pipe(
         retry(2),
@@ -67,7 +66,7 @@ export class DoacaoService {
 
   // utualiza um Pessoa
   updateDoacao(doacao: Doacao): Observable<Doacao> {
-    return this.httpClient.put<Doacao>(`${environment.url}/doacoes/` + '/' + doacao.id, doacao)
+    return this.httpClient.put<Doacao>(`${environment.url}/doacoes/`+ doacao.id, doacao)
       .pipe(
         retry(1),
         catchError(this.handleError)
@@ -76,7 +75,7 @@ export class DoacaoService {
 
   // deleta um Pessoa
   deleteDoacao(doacao: Doacao) {
-    return this.httpClient.delete<Doacao>(`${environment.url}/doacoes/` + '/' + doacao.id)
+    return this.httpClient.delete<Doacao>(`${environment.url}/doacoes/`+ doacao.id)
       .pipe(
         retry(1),
         catchError(this.handleError)

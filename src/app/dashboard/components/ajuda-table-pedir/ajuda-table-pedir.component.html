@@ -9,21 +9,23 @@
   <table class="table table-hover table-striped table-responsive">
     <thead>
       <tr>
-        <th>Usuário</th>
+        <th>id</th>
+        <th>Categoria</th>
         <th>Descrição</th>
         <th>Contato</th>
         <th>Data</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor=" let doacao of doacoes">
-        <td>{{doacao.fisica?.nome}}</td>
+      <tr *ngFor=" let doacao of doacoes  | orderBy: 'id'">
+        <td>{{doacao.id}}</td>
+        <td>{{doacao.doacaocategoria}}</td>
         <td>{{doacao.descricao}}</td>
         <td>{{contato(doacao.telefone)| mask:'(00) 00000-0000'}} </td>
         <td>{{doacao.data | date: 'dd/MM/yyyy'}}</td>
         <td>
-          <button (click)="showModalDialog(); edit(doacao);"  class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
-          <button (click)="deleteAjudaDetail(doacao.id)" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
+          <button (click)="showModalDialog(); editDoacao(doacao);"  class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
+          <button (click)="deleteDoacao(doacao)" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
         </td>
       </tr>
     </tbody>
@@ -34,46 +36,32 @@
   <p-dialog header="Pedido de Ajuda" id="" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [draggable]="false" [resizable]="false">
     <div class="content-mensagem">
       <p class="m-0"></p>
-      <form [formGroup]="ajudaForm">
+      <form>
         <div class="mb-3">
-          <!--
-            <label class="form-label">Usuário</label>
-            <input type="text" class="form-control"  placeholder="usuario" formControlName="usuario">
-          -->
+          <div class="opcoes-ajuda" required>
+            <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?"  name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria" [showClear]="true" > </p-dropdown>
+          </div>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <span class="p-float-label">
-            <textarea id="float-input" rows="2" cols="20" pInputTextarea style="resize: none;"  class="form-control"  placeholder="" formControlName="descricao"></textarea>
-            <label class="form-label" for="float-input">Descrição</label>
+            <textarea id="float-input" rows="5" cols="20" pInputTextarea style="resize: none;"  name="descricao"[(ngModel)]="doacao.descricao" placeholder="" ></textarea>
+            <label for="float-input">Descrição</label>
           </span>
-          <!--
-            <label class="form-label">Descrição</label>
-          <input type="text" class="form-control"  placeholder="example@gmail.com" formControlName="descricao">
-          -->
-          
         </div>
+
         <div class="mb-3">
           <span class="p-float-label">
-            <input id="float-input" type="tel" pInputText lass="form-control"  placeholder="" formControlName="contato"> 
+            <input id="float-input" type="text" pInputText [(ngModel)]="doacao.telefone" [mask]="getTelefoneMask()"  name="contato"  placeholder="" > 
             <label class="form-label" for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
           </span>
-          <!--
-            <label class="form-label">Contato</label>
-            <input type="tel" class="form-control"  placeholder="contato" formControlName="contato">
-          -->       
         </div>
-        <div class="mb-3">
-          <!--
-            <label class="form-label">Data</label>
-            <input type="text" class="form-control"  placeholder="data" formControlName="data">
-          -->
-        </div>
+
       </form>
     </div>
     <ng-template pTemplate="footer">
-      <p-button type="button"  icon="" (click)="displayModal=false; reset();" label="fechar" id="close" styleClass="p-button-text"></p-button>
+      <p-button type="button"  icon="" (click)="displayModal=false;" label="fechar" id="close" styleClass="p-button-text"></p-button>
       <p-button type="button" icon="pi pi-file-edit" label="Alterar" (click)="updateAjudaDetails()" *ngIf="showUpdateBtn"></p-button>
-      <p-button type="button" icon="pi pi-plus-circle" label="Adicionar" (click)="postAjudaDetails()" *ngIf="showAddBtn"></p-button>
+      <!-- <p-button type="button" icon="pi pi-plus-circle" label="Adicionar" (click)="postAjudaDetails()" *ngIf="showAddBtn"></p-button> -->
     </ng-template>
   </p-dialog>
  </div>
