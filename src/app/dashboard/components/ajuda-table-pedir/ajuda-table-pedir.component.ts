@@ -7,6 +7,7 @@ import { DataserviceService } from 'src/service/dataservice.service';
 import { DoacaoService } from 'src/service/doacao.service';
 import { PessoaService } from 'src/service/pessoa.service';
 import { ApiServiceService } from '../../../../shared/api-service.service';
+import { PessoaCategoria } from 'src/model/enums/pessoacategoria';
 
 @Component({
   selector: 'app-ajuda-table-pedir',
@@ -28,7 +29,10 @@ export class AjudaTablePedirComponent implements OnInit {
   displayModal: boolean = false;
 
   opcoesajuda: any;
+
   selectedDoacao?: Doacao;
+
+  doador:boolean = false;
 
   showModalDialog() {
     this.displayModal = true;
@@ -36,7 +40,7 @@ export class AjudaTablePedirComponent implements OnInit {
 
   //ajudaForm!: FormGroup;
   //ajudaModel: any;
- // ajudaDetails: any;
+  // ajudaDetails: any;
   showAddBtn: boolean = true;
   showUpdateBtn: boolean = false;
 
@@ -57,29 +61,58 @@ export class AjudaTablePedirComponent implements OnInit {
 
     let tokenpf = localStorage.getItem("pessoafisica");
     let tokenpj = localStorage.getItem("pessoajuridica");
+    let categoriadoacao = localStorage.getItem("tipodoacao");
 
     if (tokenpf != null) {
       this.apiPessoa.getPessoaPfByEmail(tokenpf).subscribe(re => {
         this.dataservice.setPessoaFisica(re);
         this.pessoafisica = this.dataservice.getPessoaFisica();
         this.doacao.fisica = this.pessoafisica;
-        this.apiDoacao.getDoacaoByPessoaFisica(re.id).subscribe(pf => {
-          this.doacoes = pf;
-        });
+        if (this.pessoafisica.pessoacategoria === PessoaCategoria.DOADOR) {       
+          if(categoriadoacao !=null){
+            this.apiDoacao.getDoacaoByDoacaoCategoria(categoriadoacao).subscribe(pf => {
+              this.doacoes = pf;
+            });
+          }else{
+            this.getAllDoacoes();
+          }
+        } else if (this.pessoafisica.pessoacategoria === PessoaCategoria.RECEBER_AJUDA) {
+          this.doador = true;
+          this.apiDoacao.getDoacaoByPessoaFisica(re.id).subscribe(pf => {
+            this.doacoes = pf;
+          });
+        } else {
+          this.getAllDoacoes();
+        }
       });
     } else if (tokenpj != null) {
       this.apiPessoa.getPessoaPjByEmail(tokenpj).subscribe(re => {
         this.dataservice.setPessoaJuridica(re);
         this.pessoajuridica = this.dataservice.getPessoaJuridica();
         this.doacao.juridica = this.pessoajuridica;
-        this.apiDoacao.getDoacaoByPessoaJuridica(re.id).subscribe(pf => {
-          this.doacoes = pf;
-        });
+        if(this.pessoajuridica.pessoacategoria=== PessoaCategoria.DOADOR){
+          this.doador = true;
+          if(categoriadoacao !=null){
+            this.apiDoacao.getDoacaoByDoacaoCategoria(categoriadoacao).subscribe(pf => {
+              this.doacoes = pf;
+            });
+          }else{
+            this.getAllDoacoes();
+          }
+        }else if(this.pessoajuridica.pessoacategoria=== PessoaCategoria.RECEBER_AJUDA){
+          this.doador = true;
+          this.apiDoacao.getDoacaoByPessoaJuridica(re.id).subscribe(pf => {
+            this.doacoes = pf;
+          });
+        }else{
+          this.getAllDoacoes();
+        }      
       });
     } else {
       alert("Erro ao carregar Do Usuario")
-      this.getAllDoacoes();
+    //  this.getAllDoacoes();
     }
+
   }
 
   getAllDoacoes() {
@@ -121,7 +154,8 @@ export class AjudaTablePedirComponent implements OnInit {
       alert("Doação excluida com sucesso!");
       this.getAllDoacoes();
     }, err => {
-      alert("Falha ao excluir Doação");
+      console.log(err);
+      alert(err.error.message);
     })
   }
 
@@ -137,7 +171,7 @@ export class AjudaTablePedirComponent implements OnInit {
     this.doacao.data = new Date;
     this.apiDoacao.updateDoacao(this.doacao).subscribe(res => {
       alert("Alteração feita com sucesso!");
-     // this.getAllDoacoes();
+      // this.getAllDoacoes();
       let close = document.getElementById('close');
       close?.click();
       this.locationreload();

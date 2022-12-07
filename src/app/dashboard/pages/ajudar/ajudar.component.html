@@ -20,17 +20,17 @@
                     <h3>Necessidades mais solicitadas:</h3>
                 </div>
                 <section class="principais-links">
-                    <a routerLink="">
-                        <p-button class="btn-conhecer" label="Saúde">
+                    <a routerLink="/userpedir">
+                        <p-button class="btn-conhecer"  (click)="alteraSelecionado()" label="Saúde">
                           <i class="bi bi-heart-pulse"></i>
                         </p-button>
                     </a>
-                    <a routerLink="">
-                        <p-button class="btn-pedir" label="Alimentar">
+                    <a routerLink="/userpedir">
+                        <p-button class="btn-pedir" (click)="alteraSelecionado2()"label="Alimentar">
                           <i class="bi bi-bag-heart"></i>
                         </p-button>
                     </a>
-                    <a routerLink="">
+                    <a routerLink="/userpedir">
                         <p-button class="btn-ajudar" label="Ver todos">
                           <i class="bi bi-envelope-paper-heart"></i>
                         </p-button>

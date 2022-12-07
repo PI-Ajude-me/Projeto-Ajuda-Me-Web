@@ -15,85 +15,41 @@ export class DoacaoService {
 
   // Obtem todas as Pessoas
   getDoacoes(): Observable<Doacao[]> {
-    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes`)
-      .pipe(
-        retry(2),
-        catchError(this.handleError))
-  }
-
-  getDoacoes2(): Observable<Doacao[]> {
-    return this.httpClient.get<Doacao[]>(`${environment.baseUrl}/doacoes`)
-      .pipe(
-        retry(2),
-        catchError(this.handleError))
+    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes`);
   }
 
   // Obtem um Pessoa fisica pelo id
   getDoacaoById(id: any): Observable<Doacao> {
-    return this.httpClient.get<Doacao>(`${environment.url}/doacoes/` + id)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
+    return this.httpClient.get<Doacao>(`${environment.url}/doacoes/` + id);
   }
 
   getDoacaoByPessoaFisica(id: any): Observable<Doacao[]> {
-    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes/doacaobypessoafisica/` + id)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
+    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes/doacaobypessoafisica/` + id);
   }
 
-  
   getDoacaoByPessoaJuridica(id: any): Observable<Doacao[]> {
-    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes/doacaobypessoajuridica/` + id)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
+    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes/doacaobypessoajuridica/` + id);
+  }
+
+  getDoacaoByDoacaoCategoria(categoria: any): Observable<Doacao[]> {
+    return this.httpClient.get<Doacao[]>(`${environment.url}/doacoes/doacaobydoacaocategoria/${categoria}`);
   }
 
   // salva um Pessoa
   saveDoacao(doacao: Doacao): Observable<Doacao> {
-    return this.httpClient.post<Doacao>(`${environment.url}/doacoes/`, doacao)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
+    return this.httpClient.post<Doacao>(`${environment.url}/doacoes/`, doacao);
   }
 
 
   // utualiza um Pessoa
   updateDoacao(doacao: Doacao): Observable<Doacao> {
-    return this.httpClient.put<Doacao>(`${environment.url}/doacoes/`+ doacao.id, doacao)
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      )
+    return this.httpClient.put<Doacao>(`${environment.url}/doacoes/`+ doacao.id, doacao);
   }
 
   // deleta um Pessoa
   deleteDoacao(doacao: Doacao) {
-    return this.httpClient.delete<Doacao>(`${environment.url}/doacoes/`+ doacao.id)
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      )
+    return this.httpClient.delete<Doacao>(`${environment.url}/doacoes/${doacao.id}`);
+      
   }
-
-  // Manipulação de erros
-  handleError(error: HttpErrorResponse) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Erro ocorreu no lado do client
-      errorMessage = error.error.message;
-    } else {
-      // Erro ocorreu no lado do servidor
-      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
-  };
 
 }

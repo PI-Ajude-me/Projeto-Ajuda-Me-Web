@@ -24,9 +24,9 @@
     <a *ngIf="pedir" mat-list-item routerLink="/pedir" routerLinkActive="list-item-active">
       <mat-icon>record_voice_over</mat-icon> Pedir
     </a>
-    <!-- <a mat-list-item routerLink="/userpedir" routerLinkActive="list-item-active">
-      <mat-icon>account_circle</mat-icon> User Pedir
-    </a> -->
+    <a *ngIf="userpedir"  mat-list-item routerLink="/userpedir" routerLinkActive="list-item-active">
+      <mat-icon>account_circle</mat-icon> Lista de Pedidos
+    </a>
     <a *ngIf="admin" mat-list-item routerLink="/admin" routerLinkActive="list-item-active">
       <mat-icon>edit</mat-icon> Admin
     </a>

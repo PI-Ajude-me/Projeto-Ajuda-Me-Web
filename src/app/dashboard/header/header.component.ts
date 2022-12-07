@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem("pi_ajuda_me_access_token");
     localStorage.removeItem("pessoafisica");
     localStorage.removeItem("pessoajuridica");
+    localStorage.removeItem("tipodoacao");
     this.router.navigate(['homepage']);
   }
 

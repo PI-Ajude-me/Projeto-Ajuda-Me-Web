@@ -16,6 +16,7 @@ export class SidenavComponent implements OnInit {
   ajuda:boolean = false;
   pedir:boolean = false;
   admin:boolean = false;
+  userpedir:boolean = false;
 
   constructor(private api: PessoaService, private dataservice: DataserviceService) { }
 
@@ -30,6 +31,7 @@ export class SidenavComponent implements OnInit {
         if(this.pessoafisica.pessoacategoria=== PessoaCategoria.DOADOR){
           //this.router.navigate(['/ajudar']);
           this.ajuda = true;
+          this.userpedir = true;
         //  return true;
         }else if(this.pessoafisica.pessoacategoria=== PessoaCategoria.RECEBER_AJUDA){
           //this.router.navigate(['/pedir']);

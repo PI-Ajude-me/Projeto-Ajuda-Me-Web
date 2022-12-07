@@ -16,10 +16,13 @@ export class AjudarComponent implements OnInit {
 
   nome: any;
 
+  selecionado1: string = "SAUDE";
+  selecionado2: string = "ALIMENTAR";
+
   constructor(private dataservice: DataserviceService, private api: PessoaService) { }
 
   ngOnInit(): void {
-
+    localStorage.removeItem("tipodoacao");
     let tokenpf = localStorage.getItem("pessoafisica");
     let tokenpj = localStorage.getItem("pessoajuridica");
 
@@ -38,12 +41,21 @@ export class AjudarComponent implements OnInit {
     } else {
       alert("Erro ao carregar Do Usuario")
     }
+
   }
 
   sideBarOpen = false;
 
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
+  }
+
+  alteraSelecionado(){
+    localStorage.setItem("tipodoacao", this.selecionado1); 
+  }
+
+  alteraSelecionado2(){
+    localStorage.setItem("tipodoacao", this.selecionado2); 
   }
 
 }
