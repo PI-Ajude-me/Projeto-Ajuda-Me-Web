@@ -38,9 +38,6 @@ export class AjudaTablePedirComponent implements OnInit {
     this.displayModal = true;
   }
 
-  //ajudaForm!: FormGroup;
-  //ajudaModel: any;
-  // ajudaDetails: any;
   showAddBtn: boolean = true;
   showUpdateBtn: boolean = false;
 
@@ -110,9 +107,7 @@ export class AjudaTablePedirComponent implements OnInit {
       });
     } else {
       alert("Erro ao carregar Do Usuario")
-    //  this.getAllDoacoes();
     }
-
   }
 
   getAllDoacoes() {
@@ -136,23 +131,11 @@ export class AjudaTablePedirComponent implements OnInit {
     this.showUpdateBtn = false;
   }
 
-  // postDoacaoDetails() {
-  //   this.ajudaModel = Object.assign({}, this.ajudaForm.value);
-  //   this.api.postAjuda(this.ajudaModel).subscribe(res => {
-  //     alert("Ajuda cadastrada com sucesso!");
-  //     let close = document.getElementById('close');
-  //     close?.click();
-  //     this.ajudaForm.reset();
-  //     this.getAllDoacoes();
-  //   }, err => {
-  //     alert("Error");
-  //   })
-  // }
-
   deleteDoacao(doacao: Doacao) {
     this.apiDoacao.deleteDoacao(doacao).subscribe(res => {
       alert("Doação excluida com sucesso!");
       this.getAllDoacoes();
+      this.locationreload();
     }, err => {
       console.log(err);
       alert(err.error.message);
@@ -170,8 +153,7 @@ export class AjudaTablePedirComponent implements OnInit {
   updateAjudaDetails() {
     this.doacao.data = new Date;
     this.apiDoacao.updateDoacao(this.doacao).subscribe(res => {
-      alert("Alteração feita com sucesso!");
-      // this.getAllDoacoes();
+      alert("Alteração feita com sucesso!");;
       let close = document.getElementById('close');
       close?.click();
       this.locationreload();
@@ -182,6 +164,10 @@ export class AjudaTablePedirComponent implements OnInit {
 
   getTelefoneMask(): string {
     return '(00) 00000-0000';
+  }
+
+  getCepMask(): string {
+    return '00000-000';
   }
 
   contato(contato: any) {

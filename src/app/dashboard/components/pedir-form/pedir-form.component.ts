@@ -98,6 +98,10 @@ export class PedirFormComponent implements OnInit {
     return '(00) 00000-0000';
   }
 
+  getCepMask(): string {
+    return '00000-000';
+  }
+
   validarCampos(): boolean {
     let resp: boolean = true;
     if (this.doacao.doacaocategoria == null) {

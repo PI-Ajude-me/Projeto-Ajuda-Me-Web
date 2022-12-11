@@ -1,7 +1,6 @@
 <form class="form-pedir">
     <div class="form-pedido-ajuda"> 
         <div class="form-group">  
-
           <div class="opcoes-ajuda" required>
             <p-dropdown [options]="opcoesajuda" placeholder="Qual sua necessidade?"  name="doacaocategoria" [(ngModel)]="doacao.doacaocategoria" [showClear]="true" > </p-dropdown>
           </div>
@@ -10,6 +9,22 @@
               <input id="float-input" type="text" [(ngModel)]="doacao.telefone" required name="contato" [mask]="getTelefoneMask()" pInputText> 
               <label for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
             </span>
+          </div><br><br>
+          <div class="contato-ajuda">
+            <span class="p-float-label">
+              <input id="float-input" type="text" [(ngModel)]="doacao.bairro " minlength="3" maxlength="30"  required name="bairro" pInputText> 
+              <label for="float-input"> Bairro </label>
+            </span>
+          </div><br><br>
+          <div class="contato-ajuda">
+            <span class="p-float-label">
+              <input id="float-input" type="text" [(ngModel)]="doacao.cep" required name="cep" [mask]="getCepMask()" pInputText> 
+              <label for="float-input"> CEP </label>
+            </span>
+        </div>
+
+        <div class="form-group">  
+
           </div>
         </div>
         <div class="form-group">

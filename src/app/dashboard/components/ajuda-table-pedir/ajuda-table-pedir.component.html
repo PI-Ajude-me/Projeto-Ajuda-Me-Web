@@ -12,6 +12,7 @@
         <th>id</th>
         <th>Categoria</th>
         <th>Descrição</th>
+        <th>Bairro</th>
         <th>Contato</th>
         <th>Data </th>
       </tr>
@@ -21,6 +22,7 @@
         <td>{{doacao.id}}</td>
         <td>{{doacao.doacaocategoria}}</td>
         <td>{{doacao.descricao}}</td>
+        <td>{{doacao.bairro}}</td>
         <td>{{contato(doacao.telefone)| mask:'(00) 00000-0000'}} </td>
         <td>{{doacao.data | date: 'dd/MM/yyyy'}}</td>
         <td>
@@ -48,14 +50,24 @@
             <label for="float-input">Descrição</label>
           </span>
         </div>
-
         <div class="mb-3">
           <span class="p-float-label">
             <input id="float-input" type="text" pInputText [(ngModel)]="doacao.telefone" [mask]="getTelefoneMask()"  name="contato"  placeholder="" > 
             <label class="form-label" for="float-input"><i class="pi pi-whatsapp"></i> Contato </label>
           </span>
         </div>
-
+        <div class="mb-3">
+          <span class="p-float-label">
+            <input id="float-input" type="text" [(ngModel)]="doacao.bairro " minlength="3" maxlength="30"  required name="bairro" pInputText> 
+            <label for="float-input"> Bairro </label>
+          </span>
+        </div><br>
+        <div class="mb-3">
+          <span class="p-float-label">
+            <input id="float-input" type="text" [(ngModel)]="doacao.cep" required name="cep" [mask]="getCepMask()" pInputText> 
+            <label for="float-input"> CEP </label>
+          </span>
+        </div>
       </form>
     </div>
     <ng-template pTemplate="footer">
