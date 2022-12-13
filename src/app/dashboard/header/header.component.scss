@@ -41,12 +41,13 @@ mat-toolbar {
     
   }
 
-@media (max-width: 900px) {
-  .mat-drawer-content {
-    position: fixed;
+  .bt-sair {
+    text-decoration: none;
   }
-
-}
+  
+  .bt-sair:hover {
+    border-bottom: 1px solid var(--cor-azul);
+  }
 
 .logo-menu {
   display: flex;
@@ -90,4 +91,21 @@ mat-toolbar {
 
 .bt-menu .mat-icon:hover {
   color: var(--cor-azul);
+}
+
+
+
+@media (max-width: 900px) {
+  .mat-drawer-content {
+    position: fixed;
+  }
+
+  .user-mobile {
+    display: none;
+  }
+
+  .logo-menu {
+    padding: 0 0 0 .5rem;
+  }
+
 }

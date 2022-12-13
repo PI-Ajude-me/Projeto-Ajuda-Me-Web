@@ -105,13 +105,13 @@ export class PedirFormComponent implements OnInit {
   validarCampos(): boolean {
     let resp: boolean = true;
     if (this.doacao.doacaocategoria == null) {
-      this.mensagem = "Todos os Campos São Obrigatório! ";
+      this.mensagem = "*Atenção: Todos os campos são obrigatórios!";
       resp = false;
     } if (this.doacao.telefone == undefined) {
-      this.mensagem = "Todos os Campos São Obrigatório! ";
+      this.mensagem = "*Atenção: Todos os campos são obrigatórios!";
       resp = false;
     } if (this.doacao.descricao == undefined) {
-      this.mensagem = "Todos os Campos São Obrigatório! ";
+      this.mensagem = "*Atenção: Todos os campos são obrigatórios!";
       resp = false;
     }
     return resp;

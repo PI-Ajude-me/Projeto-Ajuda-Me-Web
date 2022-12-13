@@ -17,6 +17,7 @@ export class SidenavComponent implements OnInit {
   pedir:boolean = false;
   admin:boolean = false;
   userpedir:boolean = false;
+  router: any;
 
   constructor(private api: PessoaService, private dataservice: DataserviceService) { }
 
@@ -63,5 +64,13 @@ export class SidenavComponent implements OnInit {
   }
 
   gfg: any;
+
+  sair() {
+    localStorage.removeItem("pi_ajuda_me_access_token");
+    localStorage.removeItem("pessoafisica");
+    localStorage.removeItem("pessoajuridica");
+    localStorage.removeItem("tipodoacao");
+    this.router.navigate(['homepage']);
+  }
 
 }

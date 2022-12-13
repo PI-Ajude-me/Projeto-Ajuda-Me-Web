@@ -14,6 +14,20 @@
         padding: 1.5rem 5rem;
         font-size: 1.3rem;
     }
+
+    .p-button.p-button-text {
+        background-color: var(--cor-azul)!important;
+        color: var(--cor-branca)!important;
+        width: 100%;
+    }
+
+    .p-dialog .p-dialog-footer {
+        padding: 0 2rem 3rem 2rem!important;
+    }
+}
+
+.form-group .contato-ajuda {
+    margin: 2rem 0;
 }
 
 .form-pedir .opcoes-ajuda,
@@ -34,10 +48,6 @@
     padding: 1.5rem 0 2.5rem 5rem;
 }
 
-.form-group {
-    margin: 2rem 0;
-}
-
 .form-group label {
     font-size: 1rem;
 }
@@ -53,8 +63,68 @@
     align-items: center;
     justify-content: center;
 }
+.titulo-pedir .mat-icon {
+    margin: 0 0 -0.25rem 0;
+}
+
+.text-danger {
+    font-size: .85rem;
+    font-weight: bold;
+    color: var( --cor-vermelha);
+}
 
 .form-pedir {
     width: 100%;
     padding: 2rem;
+}
+
+.content-mensagem h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+
+@media (max-width: 900px) {
+    .form-pedido-ajuda {
+        flex-direction: column;
+    }
+
+    :host::ng-deep {
+        .form-pedir .opcoes-ajuda .p-component,
+        .form-pedir .contato-ajuda .p-component,
+        .form-pedir .descricao-ajuda .p-component,
+        .enviar-pedir .p-button {
+            width: 100%!important;
+        }
+
+        .enviar-pedir .p-element {
+            width: 100%!important;
+        }
+
+        .enviar-pedir img {
+            width: 50%!important;
+        }
+    }
+
+
+    .form-pedir {
+        padding: 1rem;
+    }
+
+    .titulo-pedir {
+        padding: 2rem;
+    }
+
+    .titulo-pedir h1 {
+        font-size: 1.65rem;
+    }
+
+    .titulo-pedir h5 {
+        font-size: 1rem;
+    }
+
+    .text-danger {
+        font-size: .8rem;
+    }
+
 }

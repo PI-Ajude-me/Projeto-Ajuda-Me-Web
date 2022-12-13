@@ -1,16 +1,6 @@
 <mat-nav-list>
-      <!--
-              <div class="navlogo">
-        <img src="../../assets/img/logoajudeme.webp" alt="Logo Ajude.me" />
-        <h1>Ajude.me</h1>
-      </div>
-      
-      -->
-      <div class="navimg">
-
-      </div>
-
-    <mat-divider></mat-divider>
+  <div class="navimg"></div>
+  <mat-divider></mat-divider>
    <div class="titulo-side">
     <h2 matSubheader class="mt-2">PROJETO SOCIAL - CIDADE GOIÂNIA -</h2>
    </div>
@@ -33,4 +23,9 @@
     <a *ngIf="admin" mat-list-item routerLink="/adm-admin" routerLinkActive="list-item-active">
       <mat-icon>brightness_low</mat-icon> Page Adm
     </a>
-  </mat-nav-list> 
+    <div class="bt-sair" (click)="sair()">
+      <a mat-list-item routerLink="/homepage">
+        <mat-icon>exit_to_app</mat-icon>Sair
+      </a>
+    </div>
+</mat-nav-list> 

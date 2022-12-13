@@ -26,10 +26,10 @@
 
 .mat-divider {
   border-top-width: 2px;
-  border-color: white;
+  border-color: var(--cor-branca);
 }
 .mat-list-item {
-  color: #94a3b8 !important;
+  color: #94a3b8!important;
   font-size: 0.8rem;
   height: 44px !important;
   margin-bottom: 4px;
@@ -41,8 +41,8 @@
       border-radius: 5px;
       margin: 0 8px;
       &:hover {
-        background: #2564ebb0!important;
-        opacity: .5;
+        background: var(--cor-azul)!important;
+        opacity: .55;
       }
     }
   }
@@ -106,4 +106,14 @@ padding: 2rem 1.5rem;
 font-weight: 500;
 color: var(--cor-preta-tom);
 background-color: rgba(0, 0, 0, .05);
+}
+
+.row {
+  display: none;
+}
+
+@media (min-width:900px) {
+  .bt-sair {
+    display: none;
+  }
 }

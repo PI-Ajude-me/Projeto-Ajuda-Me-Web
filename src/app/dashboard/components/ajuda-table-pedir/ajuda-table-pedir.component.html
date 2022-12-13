@@ -5,11 +5,13 @@
     </div>
 </nav>
 
-<div class="container mt-2">
-  <table class="table table-hover table-striped table-responsive">
-    <thead>
+<div class="container mt-2 table-responsive">
+  <table class="table table-hover table-striped">
+    <thead >
       <tr>
-        <th>id</th>
+        <!--
+           <th>id</th>
+        -->
         <th>Categoria</th>
         <th>Descrição</th>
         <th>Bairro</th>
@@ -19,7 +21,9 @@
     </thead>
     <tbody>
       <tr *ngFor=" let doacao of doacoes  | orderBy: 'id'">
-        <td>{{doacao.id}}</td>
+        <!--
+          <td>{{doacao.id}}</td>
+        -->
         <td>{{doacao.doacaocategoria}}</td>
         <td>{{doacao.descricao}}</td>
         <td>{{doacao.bairro}}</td>
@@ -61,7 +65,7 @@
             <input id="float-input" type="text" [(ngModel)]="doacao.bairro " minlength="3" maxlength="30"  required name="bairro" pInputText> 
             <label for="float-input"> Bairro </label>
           </span>
-        </div><br>
+        </div>
         <div class="mb-3">
           <span class="p-float-label">
             <input id="float-input" type="text" [(ngModel)]="doacao.cep" required name="cep" [mask]="getCepMask()" pInputText> 
@@ -71,8 +75,15 @@
       </form>
     </div>
     <ng-template pTemplate="footer">
-      <p-button type="button"  icon="" (click)="displayModal=false;" label="fechar" id="close" styleClass="p-button-text"></p-button>
-      <p-button type="button" icon="pi pi-file-edit" label="Alterar" (click)="updateAjudaDetails()" *ngIf="showUpdateBtn"></p-button>
+      <div class="b-crud">
+        <div class="b-alterar">
+          <p-button type="button" icon="pi pi-file-edit" label="Alterar" (click)="updateAjudaDetails()" *ngIf="showUpdateBtn"></p-button>
+        </div>
+        <div class="b-fechar">
+          <p-button type="button"  icon="" (click)="displayModal=false;" label="fechar" id="close" styleClass="p-button-text"></p-button>
+        </div>
+      </div>
+      
       <!-- <p-button type="button" icon="pi pi-plus-circle" label="Adicionar" (click)="postAjudaDetails()" *ngIf="showAddBtn"></p-button> -->
     </ng-template>
   </p-dialog>

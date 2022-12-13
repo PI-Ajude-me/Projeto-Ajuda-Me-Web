@@ -82,7 +82,7 @@
   }
 
   .mat-drawer {
-    margin-top: 4rem;
+    margin-top: 0;
   }
 
 }
@@ -182,6 +182,14 @@
                 }
             }
         }
+    }
+
+    .titulo-admin {
+        padding: 2rem 3.5rem;
+    }
+
+    .titulo-admin h1 {
+        margin: 0 0 .5rem 0!important;
     }
 
 }

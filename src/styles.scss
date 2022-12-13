@@ -44,9 +44,11 @@ $primeng-sandbox-theme: mat.define-light-theme((
 
 :root {
  --cor-azul: #2563eb;
+ --cor-grey: #919ebb17;
  --cor-branca: #fff;
  --cor-vermelha: #ff0000;
  --cor-preta-tom: #07132f;
+ --cor-amarela: #ffc107;
 }
 
 html,
@@ -62,5 +64,10 @@ body {
     margin: 2rem;
     position: absolute;
 }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--cor-branca) inset!important;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

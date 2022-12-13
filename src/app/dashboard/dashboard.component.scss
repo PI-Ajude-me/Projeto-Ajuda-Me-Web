@@ -10,7 +10,7 @@
 }
 
 .boards .board-info {
-    width: 22vw;
+    width: 100%;
     border: 1px solid rgba(0, 0, 0, .1);
     margin: 0 2rem 0 0;
     box-shadow: 1px 5px 10px rgba(0, 0, 0, .2);
@@ -37,8 +37,9 @@
 }
 
 .board-img img {
-    width: 25rem;
+    width: 100%;
 }
+
 
 .board-img {
     width: 35vw;
@@ -49,3 +50,35 @@
     padding: 1rem 0;
 }
 
+.demo-inline-calendar-card {
+    width: 300px;
+  }
+
+.titulo-admin h1 {
+    margin: 0 0 .3rem 0!important;
+}
+
+@media (max-width: 900px) {
+    .boards {
+        flex-direction: column;
+        width: 100vw;
+        margin: 0;
+    }
+
+    .boards .board-info {
+        margin: 0;
+    }
+
+    .page {
+        &__content {
+          &-data {
+            top: 50%;
+          }
+        }
+    }
+    
+    .board-img {
+        display: none;
+    }
+    
+}
