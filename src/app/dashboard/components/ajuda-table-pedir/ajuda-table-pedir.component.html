@@ -29,12 +29,14 @@
         <td>{{doacao.bairro}}</td>
         <td>{{contato(doacao.telefone)| mask:'(00) 00000-0000'}} </td>
         <td>{{doacao.data | date: 'dd/MM/yyyy'}}</td>
-        <td class="bt-atex">
-          <div class="bt-alterart">
-            <button (click)="showModalDialog(); editDoacao(doacao);"  *ngIf="doador" class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
-          </div>
-          <div class="bt-excluirt">
-            <button (click)="deleteDoacao(doacao)" *ngIf="doador" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
+        <td>
+          <div class="bt-altex">
+            <div class="bt-alterart">
+              <button (click)="showModalDialog(); editDoacao(doacao);"  *ngIf="doador" class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
+            </div>
+            <div class="bt-excluirt">
+              <button (click)="deleteDoacao(doacao)" *ngIf="doador" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
+            </div>
           </div>
         </td>
       </tr>

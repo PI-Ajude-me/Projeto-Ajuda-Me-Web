@@ -101,30 +101,11 @@
 
 }
 
-.bt-alterart button,
-.bt-excluirt button {
-    width: 100%;
-}
-
-.bt-alterart,
-.bt-excluirt  {
-    margin: 0 .2rem .2rem 0;
-}
-
-.bt-alterart {
-    margin-right: 1rem;
-}
-
-.bt-atex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.bt-altex { display: flex;}
 
 .b-crud {
     display: flex;
     justify-content: right;
-
 }
 
 .form-pedir .opcoes-ajuda,
@@ -168,20 +149,15 @@
         .p-dialog .p-dialog-content {
             padding: 0 1rem 1rem 2rem!important;
         }
-
     }
 
-    .bt-alterart {
-        margin-right: 0;
-    }
+    .bt-alterart { margin-right: .5rem;}
 
-    .bt-alterart button,
-    .bt-excluirt button {
-         width: 16vw;
-    }
+    .bt-altex .mx-2 { margin-left: 0!important;}
 
-    .bt-atex {
-        flex-direction: column;
+    .bt-alterart button {
+        width: 100%;
+        margin-bottom: .5rem;
     }
     
 }
