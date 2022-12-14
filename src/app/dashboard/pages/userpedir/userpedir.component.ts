@@ -6,7 +6,7 @@ import { DataserviceService } from 'src/service/dataservice.service';
 import { DoacaoService } from 'src/service/doacao.service';
 import { PessoaService } from 'src/service/pessoa.service';
 import { ApiServiceService } from '../../../../shared/api-service.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-userpedir',
@@ -66,7 +66,7 @@ export class UserpedirComponent implements OnInit {
         // });
       });
     } else {
-      alert("Erro ao carregar Do Usuario")
+      Swal.fire("Erro ao carregar Do Usuario")
      // this.getAllDoacoes();
     }
   }

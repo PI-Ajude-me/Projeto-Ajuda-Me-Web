@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/service/login.service';
 import { PessoaService } from 'src/service/pessoa.service';
 import {MessageService} from 'primeng/api';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -51,14 +52,14 @@ export class LoginComponent implements OnInit {
               this.showTopCenter();
               this.messageService.add({key: 'tc', sticky: true, severity:'success', summary:'Login feito com sucesso!', detail:'Bem-vindo!'});
               this.router.navigate(['/ajudar']);
-              alert("Bem vindo ao Ajuda-Me!");
+              Swal.fire("Bem vindo ao Ajuda-Me!");
             } else if (re.pessoacategoria === PessoaCategoria.RECEBER_AJUDA) {
               this.dataservice.setPessoaFisica(re);
               localStorage.setItem("pessoafisica", r.login);
               this.showTopCenter();
               this.messageService.add({key: 'tc', sticky: true, severity:'success', summary:'Login feito com sucesso!', detail:'Bem-vindo!'});
               this.router.navigate(['/pedir']);
-              alert("Bem vindo ao Ajuda-Me!");
+              Swal.fire("Bem vindo ao Ajuda-Me!");
             }
           });
         }
@@ -69,20 +70,20 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("pessoajuridica", r.login);
               this.showTopCenter();
               this.router.navigate(['ajudar']);
-              alert("Bem vindo ao Ajuda-Me!");
+              Swal.fire("Bem vindo ao Ajuda-Me!");
             } else if (re.pessoacategoria === PessoaCategoria.RECEBER_AJUDA) {
               this.dataservice.setPessoaJuridica(re);
               localStorage.setItem("pessoajuridica", r.login);
               this.showTopCenter();
               this.router.navigate(['/pedir']);
-             alert("Bem vindo ao Ajuda-Me!");
+              Swal.fire("Bem vindo ao Ajuda-Me!");
             } else {
               this.router.navigate(['/dashboard']);
             }
           });
         }
       } else {
-        alert("Usuario não encontrado");
+        Swal.fire("Usuario não encontrado");
       }
     });
   }

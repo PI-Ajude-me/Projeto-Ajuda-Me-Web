@@ -8,6 +8,7 @@ import { DoacaoService } from 'src/service/doacao.service';
 import { PessoaService } from 'src/service/pessoa.service';
 import { ApiServiceService } from '../../../../shared/api-service.service';
 import { PessoaCategoria } from 'src/model/enums/pessoacategoria';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajuda-table-pedir',
@@ -106,7 +107,7 @@ export class AjudaTablePedirComponent implements OnInit {
         }      
       });
     } else {
-      alert("Erro ao carregar Do Usuario")
+      Swal.fire("Erro ao carregar Do Usuario")
     }
   }
 
@@ -133,12 +134,12 @@ export class AjudaTablePedirComponent implements OnInit {
 
   deleteDoacao(doacao: Doacao) {
     this.apiDoacao.deleteDoacao(doacao).subscribe(res => {
-      alert("Doação excluida com sucesso!");
+      Swal.fire("Doação excluida com sucesso!");
       this.getAllDoacoes();
       this.locationreload();
     }, err => {
       console.log(err);
-      alert(err.error.message);
+      Swal.fire(err.error.message);
     })
   }
 
@@ -153,12 +154,12 @@ export class AjudaTablePedirComponent implements OnInit {
   updateAjudaDetails() {
     this.doacao.data = new Date;
     this.apiDoacao.updateDoacao(this.doacao).subscribe(res => {
-      alert("Alteração feita com sucesso!");;
+      Swal.fire("Alteração feita com sucesso!");;
       let close = document.getElementById('close');
       close?.click();
       this.locationreload();
     }, err => {
-      alert("Erro! Não foi possivel alterar");
+      Swal.fire("Erro! Não foi possivel alterar");
     });
   }
 

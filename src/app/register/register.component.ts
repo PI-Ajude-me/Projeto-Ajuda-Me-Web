@@ -6,7 +6,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import {MessageService} from 'primeng/api';
 import { CpfCnpjValidator } from 'src/shared/cpf-cnpj.validator';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -91,10 +91,10 @@ export class RegisterComponent implements OnInit {
 
       this.api.savePessoaPf(pessoaFisica).subscribe(res => {
         this.pessoaForm.reset();
-        alert("Cadastro PF Realizado Com Sucesso!");
+        Swal.fire("Cadastro PF Realizado Com Sucesso!");
         this.router.navigate(['/login']);
       }, err => {
-        alert("Error");
+        Swal.fire("Erro! Usuário já cadastrado");
       })
     }
 
@@ -110,10 +110,10 @@ export class RegisterComponent implements OnInit {
 
       this.api.savePessoaPj(pessoaJuridica).subscribe(res => {
         this.pessoaForm.reset();
-        alert("Cadastro PJ Realizado Com Sucesso!");
+        Swal.fire("Cadastro PJ Realizado Com Sucesso!");
         this.router.navigate(['/login']);
       }, err => {
-        alert("Error");
+        Swal.fire("Erro! Usuário já cadastrado");
       })
     }  
   }

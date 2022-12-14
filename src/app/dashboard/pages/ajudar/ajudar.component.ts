@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaFisica, PessoaJurica } from 'src/model/pessoa';
 import { DataserviceService } from 'src/service/dataservice.service';
 import { PessoaService } from 'src/service/pessoa.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-ajudar',
   templateUrl: './ajudar.component.html',
@@ -39,7 +39,7 @@ export class AjudarComponent implements OnInit {
         this.nome = this.pessoajuridica.nome;
       });
     } else {
-      alert("Erro ao carregar Do Usuario")
+      Swal.fire("Erro ao carregar Do Usuario")
     }
 
   }

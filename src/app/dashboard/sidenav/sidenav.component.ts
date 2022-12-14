@@ -3,7 +3,7 @@ import { PessoaCategoria } from 'src/model/enums/pessoacategoria';
 import { PessoaFisica, PessoaJurica } from 'src/model/pessoa';
 import { DataserviceService } from 'src/service/dataservice.service';
 import { PessoaService } from 'src/service/pessoa.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -59,7 +59,7 @@ export class SidenavComponent implements OnInit {
         }
       });
     } else {
-      alert("Erro ao carregar Do Usuario")
+      Swal.fire("Erro ao carregar Do Usuario")
     }
   }
 

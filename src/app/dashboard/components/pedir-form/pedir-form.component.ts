@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaFisica, PessoaJurica } from 'src/model/pessoa';
 import { DataserviceService } from 'src/service/dataservice.service';
 import { PessoaService } from 'src/service/pessoa.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-pedir-form',
   templateUrl: './pedir-form.component.html',
@@ -69,7 +69,7 @@ export class PedirFormComponent implements OnInit {
         });
       });
     } else {
-      alert("Erro ao carregar Do Usuario")
+      Swal.fire("Erro ao carregar Do Usuario")
     }
   }
 
@@ -85,11 +85,11 @@ export class PedirFormComponent implements OnInit {
         this.apiDoacao.saveDoacao(this.doacao).subscribe(res => {
           this.showModalDialog();
         }, err => {
-          alert("Error");
+          Swal.fire("Error");
         });
       } else {
         this.locationreload();
-        alert("Só pode Uma Doação por Mês");
+        Swal.fire("Só pode Uma Doação por Mês");
       }
     }
   }

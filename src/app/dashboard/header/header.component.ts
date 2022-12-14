@@ -1,7 +1,7 @@
 import { PessoaFisica, PessoaJurica } from './../../../model/pessoa';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 import { DataserviceService } from 'src/service/dataservice.service';
 import { PessoaService } from 'src/service/pessoa.service';
 
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
         this.nome = this.pessoajuridica.nome;
       });
     } else {
-      alert("Erro ao carregar Do Usuario")
+      Swal.fire("Erro ao carregar Do Usuario")
     }
   }
 
