@@ -43,7 +43,6 @@ import { HttpInterceptorAuth } from '../shared/http-interceptor';
 import { AuthGuardService } from '../shared/auth-guard-service';
 import {ToastModule} from 'primeng/toast';
 import { NgPipesModule } from 'ngx-pipes';
-import {CalendarModule} from 'primeng/calendar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,8 +89,7 @@ import {CalendarModule} from 'primeng/calendar';
     MatIconModule,
     DialogModule,
     ToastModule,
-    NgPipesModule,
-    CalendarModule
+    NgPipesModule
   ],
   providers: [
     LoginService,AuthGuardService,

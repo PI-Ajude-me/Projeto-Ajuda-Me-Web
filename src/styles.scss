@@ -44,6 +44,7 @@ $primeng-sandbox-theme: mat.define-light-theme((
 
 :root {
  --cor-azul: #2563eb;
+ --cor-azul-sec: #3B82F6;
  --cor-grey: #919ebb17;
  --cor-branca: #fff;
  --cor-vermelha: #ff0000;
@@ -67,6 +68,10 @@ body {
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px var(--cor-branca) inset!important;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: var(--cor-azul-sec)!important;
 }
 
 html, body { height: 100%; }
