@@ -31,7 +31,7 @@
                         <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
                             <div *ngIf="nome.errors" class="erro-info">Nome é obrigatório</div>
                         </div>
-                        <input type="text" pInputText id="nome" name="nome" formControlName="nome" class="form-control"
+                        <input type="text" placeholder="Digite seu nome" pInputText id="nome" name="nome" formControlName="nome" class="form-control"
                             required />
                         <label for="nome">Nome</label>
                     </span>
@@ -43,7 +43,7 @@
                             <!-- <div *ngIf="f.submitted && razaosocial.invalid && tipodecadastro === 'CNPJ'" class="invalid-feedback">
                                 <div *ngIf="razaosocial.errors && tipodecadastro === 'CNPJ'" class="erro-info">Razão Social é obrigatório</div>
                             </div> -->
-                            <input type="text" pInputText id="razaosocial" name="razaosocial" formControlName="razaosocial"/>
+                            <input type="text" placeholder="Empresa Exemplo" pInputText id="razaosocial" name="razaosocial" formControlName="razaosocial"/>
                             <label for="razaosocial">Razão Social</label>
                         </span>
                     </div>
@@ -54,7 +54,7 @@
                         <div *ngIf="f.submitted && cpf.invalid" class="invalid-feedback">
                             <div *ngIf="cpf.errors" class="erro-info">{{tipodecadastro}} é obrigatório</div>
                         </div>
-                        <input type="text" pInputText id="CPF" name="cpf" [mask]="getCpfCnpjMask()" formControlName="cpf"
+                        <input type="text" pInputText id="CPF" placeholder="" name="cpf" [mask]="getCpfCnpjMask()" formControlName="cpf"
                             required />
                         <label for="cpf">{{tipodecadastro}}</label>
                     </span>
@@ -64,7 +64,7 @@
                             <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
                                 <div *ngIf="telefone.errors" class="erro-info">Telefone é obrigatório</div>
                             </div>
-                            <input type="text" pInputText id="telefone" name="telefone" [mask]="getTelefoneMask()"
+                            <input type="text" pInputText id="telefone" placeholder="(00) 00000-0000" name="telefone" [mask]="getTelefoneMask()"
                                 formControlName="telefone" required />
                             <label for="telefone">Telefone</label>
                         </span>
@@ -76,7 +76,7 @@
                         <div *ngIf="email.errors?.['required']" class="erro-info">E-Mail é obrigatório</div>
                         <div *ngIf="email.errors?.['pattern']" class="erro-info">O endereço de e-mail deve conter o caractere @</div>
                     </div>
-                    <input type="text" pInputText id="email" name="email" formControlName="email" required />
+                    <input type="text" pInputText id="email" placeholder="exemplo@mail.com" name="email" formControlName="email" required />
                     <label for="email">E-mail</label>
                 </span>
     
@@ -85,7 +85,7 @@
                         <div *ngIf="senha.errors" class="erro-info">Senha é obrigatório</div>
                         <div *ngIf="senha.errors?.['minLength']" class="erro-info">A senha deve ter mais de 3 caracteres, precisamos de outra</div>
                     </div>
-                    <input type="password" pInputText id="senha" name="senha" formControlName="senha" required />
+                    <input type="password" placeholder="Senha" pInputText id="senha" name="senha" formControlName="senha" required />
                     <label for="senha">Senha</label>
                 </span>
     
