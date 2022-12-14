@@ -29,9 +29,13 @@
         <td>{{doacao.bairro}}</td>
         <td>{{contato(doacao.telefone)| mask:'(00) 00000-0000'}} </td>
         <td>{{doacao.data | date: 'dd/MM/yyyy'}}</td>
-        <td>
-          <button (click)="showModalDialog(); editDoacao(doacao);"  *ngIf="doador" class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
-          <button (click)="deleteDoacao(doacao)" *ngIf="doador" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
+        <td class="bt-atex">
+          <div class="bt-alterart">
+            <button (click)="showModalDialog(); editDoacao(doacao);"  *ngIf="doador" class="btn btn-sm btn-warning text-white mx-2"><i class="pi pi-pencil"></i> Alterar</button>
+          </div>
+          <div class="bt-excluirt">
+            <button (click)="deleteDoacao(doacao)" *ngIf="doador" class="btn btn-sm btn-danger"><i class="pi pi-trash"></i> Excluir</button>
+          </div>
         </td>
       </tr>
     </tbody>
@@ -80,7 +84,7 @@
           <p-button type="button" icon="pi pi-file-edit" label="Alterar" (click)="updateAjudaDetails()" *ngIf="showUpdateBtn"></p-button>
         </div>
         <div class="b-fechar">
-          <p-button type="button"  icon="" (click)="displayModal=false;" label="fechar" id="close" styleClass="p-button-text"></p-button>
+          <p-button type="button"  icon="" (click)="displayModal=false;" label="Fechar" id="close" styleClass="p-button-text"></p-button>
         </div>
       </div>
       

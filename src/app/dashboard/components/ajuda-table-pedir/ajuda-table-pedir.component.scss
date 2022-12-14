@@ -101,6 +101,26 @@
 
 }
 
+.bt-alterart button,
+.bt-excluirt button {
+    width: 100%;
+}
+
+.bt-alterart,
+.bt-excluirt  {
+    margin: 0 .2rem .2rem 0;
+}
+
+.bt-alterart {
+    margin-right: 1rem;
+}
+
+.bt-atex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .b-crud {
     display: flex;
     justify-content: right;
@@ -150,6 +170,18 @@
         }
 
     }
-    
 
+    .bt-alterart {
+        margin-right: 0;
+    }
+
+    .bt-alterart button,
+    .bt-excluirt button {
+         width: 16vw;
+    }
+
+    .bt-atex {
+        flex-direction: column;
+    }
+    
 }
