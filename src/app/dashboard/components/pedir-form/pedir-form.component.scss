@@ -21,10 +21,13 @@
         width: 100%;
     }
 
-    .p-dialog .p-dialog-footer {
-        padding: 0 5rem 3rem 5rem!important;
+    .enviar-pedir-o .p-dialog .p-dialog-footer {
+        padding: 0 6rem 3rem 6rem!important;
     }
+
 }
+
+
 
 .form-group .contato-ajuda {
     margin: 2rem 0;
@@ -70,7 +73,7 @@
 .text-danger {
     font-size: .85rem;
     font-weight: bold;
-    color: var( --cor-vermelha);
+    color: var(--cor-vermelha);
 }
 
 .form-pedir {
@@ -105,13 +108,11 @@
             width: 50%!important;
         }
 
-        .p-dialog .p-dialog-footer {
+        .enviar-pedir-o .p-dialog .p-dialog-footer {
             padding: 0 2rem 3rem 2rem!important;
         }
+
     }
-
-  
-
 
     .form-pedir {
         padding: 1rem;

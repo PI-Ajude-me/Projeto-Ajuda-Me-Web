@@ -33,18 +33,20 @@
           </div>
          <div class="enviar-pedir">
           <p-button (click)="salvar()" label="Enviar" valid icon="pi pi-send" ></p-button>
-          <p-dialog header="Ajude.me" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [draggable]="false" [resizable]="false">
-            <div class="content-mensagem">
-              <p class="m-0"></p>
-              <h1>Deu tudo CERTO!</h1>
-              <img [style]="{width: '12vw'}" src="../../../../assets/img/Ok.gif">
-              <h4>Sua solicitação já se encontra em nosso sistema.</h4>
-            </div>
-            <ng-template pTemplate="footer">
-              <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" (click) =locationreload() styleClass="p-button-text"></p-button>
-            </ng-template>
-          </p-dialog>
-
+          <div class="enviar-pedir-o">
+            <p-dialog header="Ajude.me" [(visible)]="displayModal" [modal]="true" [style]="{width: '30vw'}" [draggable]="false" [resizable]="false">
+              <div class="content-mensagem">
+                <p class="m-0"></p>
+                <h1>Deu tudo CERTO!</h1>
+                <img [style]="{width: '12vw'}" src="../../../../assets/img/Ok.gif">
+                <h4>Sua solicitação já se encontra em nosso sistema.</h4>
+              </div>
+              <ng-template pTemplate="footer">
+                <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" (click) =locationreload() styleClass="p-button-text"></p-button>
+              </ng-template>
+            </p-dialog>
+          </div>
+         
           <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
             <small *ngIf="mensagem" class="text-danger support-text">{{mensagem}}</small>            
           </div>
